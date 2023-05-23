@@ -12,11 +12,12 @@ Added basic WASD and point-and-click movement for testing purposes
 info
 
 
-## GROUP MEMBER 2
+## GROUP MEMBER 2 : Randy Yang
 
-### date x
+### date 5/22/2023
 
-info
+Created Map class and added pseudocode for map class done over weekend 
+Have not tested code yet due to it requiring other methods from other classes not yet implemented
 
 ### date y
 
