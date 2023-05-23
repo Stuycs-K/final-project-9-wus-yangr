@@ -3,6 +3,8 @@ public int playerY = yHeight/2;
 public int clickX = playerX;
 public int clickY = playerY;
 
+//COMMENT OUT POINT AND CLICK WHEN DOING WASD OR IT WONT WORK
+
 //temporary WASD movement
 public void keyPressed() {
     if(key == 'w'){
