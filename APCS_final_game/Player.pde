@@ -1,7 +1,7 @@
-public int playerX = 500;
-public int playerY = 500;
-
-int[][] map = new int[1000][1000];
+public int playerX = xWidth/2;
+public int playerY = yHeight/2;
+public int clickX = playerX;
+public int clickY = playerY;
 
 //temporary WASD movement
 public void keyPressed() {
@@ -28,9 +28,26 @@ public void keyPressed() {
 
 }
 
-// point-and-click pathfinding: greedy
+// point-and-click pathfinding: greedy, there shouldn't be any locations on the map where A* would be necessary
 public void mousePressed() {
-  while (playerX != mouseX && playerY != mouseY) {
-    
+  clickX = mouseX;
+  clickY = mouseY;
+}
+
+// temporary basic point-and-click movement, doesn't take objects into mind
+public void move() {
+  if (playerX != clickX) {
+    int oldCoorX = playerX;
+    playerX++;
+    if (abs(oldCoorX-clickX) < abs(playerX-clickX)) {
+      playerX-=2;
+    }
+  }
+  if (playerY != clickY) {
+    int oldCoorY = playerY;
+    playerY++;
+    if (abs(oldCoorY-clickY) < abs(playerY-clickY)) {
+      playerY-=2;
+    }
   }
 }
