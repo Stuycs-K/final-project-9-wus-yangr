@@ -5,7 +5,9 @@ int[][] map = new int[xWidth][yHeight];
 
 void setup() {
   size(500, 500);
+  System.out.println(diceRoll());
 }  
+
 void draw() {
   background(105);
   color(55);
