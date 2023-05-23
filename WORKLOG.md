@@ -1,10 +1,11 @@
 # Work Log
 
-## GROUP MEMBER 1
+## GROUP MEMBER 1: Sherlyn Wu
 
-### date x
+### date 5/22/2023
 
-info
+Created the Player class
+Added basic WASD and point-and-click movement for testing purposes
 
 ### date y
 
