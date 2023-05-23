@@ -38,8 +38,23 @@ void createMap(PImage mapImg) {
 }
 
 void draw() {
-  background(105);
-  color(55);
+  noStroke();
+  drawMap();
+  fill(105);
   move();
   circle(playerX, playerY, 50);
+}
+
+// Draws the map
+void drawMap() {
+  for (int i = 0; i < map.length; i++) {
+   for (int j = 0; j < map[0].length; j++) {
+   if (map[i][j] == COLLIDE) {
+     fill(color(0));
+   } else {
+     fill(color(255,255,255));
+   }
+   square(i*gridSize,j*gridSize,gridSize);
+  } 
+  }
 }
