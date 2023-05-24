@@ -18,4 +18,12 @@ class DialogueNode {
   void addChild(DialogueNode child) {
     children.add(child);
   }
+  
+  String text() {
+    return dialogue;
+  }
+  
+  DialogueNode returnChild(int childIndex) {
+    return children.get(childIndex);
+  }
 }
