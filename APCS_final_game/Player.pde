@@ -1,7 +1,8 @@
-public int playerX = xWidth/2;
-public int playerY = yHeight/2;
+public int playerX = 500;
+public int playerY = 600;
 public int clickX = playerX;
 public int clickY = playerY;
+public int playerRadius = 25;
 
 //COMMENT OUT POINT AND CLICK WHEN DOING WASD OR IT WONT WORK
 
@@ -37,8 +38,18 @@ public void mousePressed() {
   clickY = mouseY;
 }
 
+// checks what quadrant player is in
+public boolean touchingObject() {
+  if (map[playerX/gridSize][playerY/gridSize] == 0) {
+    return false;
+  }
+  return true;
+}
+
 // temporary basic point-and-click movement, doesn't take objects into mind
 public void move() {
+  // if player is not touching a black spot
+  if (!touchingObject()) {
   if (playerX != clickX) {
     int oldCoorX = playerX;
     playerX++;
@@ -52,5 +63,7 @@ public void move() {
     if (abs(oldCoorY-clickY) < abs(playerY-clickY)) {
       playerY-=2;
     }
+  }
+  } else {
   }
 }

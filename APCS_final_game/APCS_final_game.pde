@@ -43,11 +43,14 @@ void createMap(PImage mapImg) {
 }
 
 void draw() {
-  noStroke();
+  //noStroke();
   drawMap();
-  fill(105);
   move();
-  circle(playerX, playerY, 50);
+  fill(105);
+  circle(playerX, playerY, playerRadius);
+  // player's coord marker
+  fill(color(255,0,0));
+  circle(playerX,playerY, 3);
 }
 
 // Draws the map
