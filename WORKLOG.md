@@ -19,6 +19,8 @@ Created Dialogue Nodes
 Created Map class and added pseudocode for map class done over weekend
 Have not tested code yet due to it requiring other methods from other classes not yet implemented
 
-### date y
+### date 5/23/2023
 
-info
+Created skills class w/ complete dice roll method
+Created collidable class
+Created preliminary interactable & door child classes
