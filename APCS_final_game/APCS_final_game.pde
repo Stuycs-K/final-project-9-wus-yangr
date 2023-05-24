@@ -61,6 +61,14 @@ void draw() {
     fill(color(255));
   }
   rect(1050,850,400,100);
+  
+    
+  // Draws the dialogue to the box
+  fill(color(255));
+  textSize(25);
+  text("it's me boy", 1050, 200);
+  text("I'm the PS4", 1050, 250);
+  text("speaking to you inside your brain", 1050, 300);
 }
 
 // Draws the map
