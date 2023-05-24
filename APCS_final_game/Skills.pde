@@ -1,4 +1,3 @@
-
 //these things do nothing for now 
  int intelligence = 0; 
  int psyche = 0; 
