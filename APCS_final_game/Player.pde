@@ -34,8 +34,11 @@ public void keyPressed() {
 
 // point-and-click pathfinding: greedy, there shouldn't be any locations on the map where A* would be necessary
 public void mousePressed() {
+  // mouse must be within bounds
+  if (mouseX < xWidth && mouseY < yHeight) {
   clickX = mouseX;
   clickY = mouseY;
+  }
 }
 
 // checks what quadrant player is in

@@ -8,7 +8,7 @@ static int SPACE = 0;
 static int COLLIDE = 1;
 
 void setup() {
-  size(1000, 1000);
+  size(1500, 1000);
   PImage mapImg = loadImage("mapTest.png");
   createMap(mapImg);
   //printAr(map);
@@ -43,14 +43,24 @@ void createMap(PImage mapImg) {
 }
 
 void draw() {
+  background(color(0));
   //noStroke();
   drawMap();
   move();
   fill(105);
   circle(playerX, playerY, playerRadius);
+  
   // player's coord marker
   fill(color(255,0,0));
   circle(playerX,playerY, 3);
+  
+  // draw a button for dialogue progression
+  fill(color(155,155,155));
+  // if mouse is over button, light up the button
+  if (1050 < mouseX && mouseX < 1450 && 850 < mouseY && mouseY < 950) {
+    fill(color(255));
+  }
+  rect(1050,850,400,100);
 }
 
 // Draws the map
