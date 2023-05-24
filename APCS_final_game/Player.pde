@@ -6,6 +6,7 @@ public int clickY = playerY;
 //COMMENT OUT POINT AND CLICK WHEN DOING WASD OR IT WONT WORK
 
 //temporary WASD movement
+/**
 public void keyPressed() {
     if(key == 'w'){
       if(playerY > 0){
@@ -28,7 +29,7 @@ public void keyPressed() {
       }
     }
 
-}
+} **/
 
 // point-and-click pathfinding: greedy, there shouldn't be any locations on the map where A* would be necessary
 public void mousePressed() {

@@ -23,7 +23,7 @@ class DialogueNode {
     return dialogue;
   }
   
-  DialogueNode returnChild(int childIndex) {
+  DialogueNode getChild(int childIndex) {
     return children.get(childIndex);
   }
 }

@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 int xWidth = 1000;
 int yHeight = 1000;
 int gridSize = 50;
@@ -11,17 +13,8 @@ void setup() {
   createMap(mapImg);
   //printAr(map);
   
-    
-  // dialogue examples
-  DialogueNode test1 = new DialogueNode("test1", "What's your favorite animal?");
-  DialogueNode test2 = new DialogueNode("test2", "Dog.");
-  DialogueNode test3 = new DialogueNode("test3", "Cat.");
-  DialogueNode dog1 = new DialogueNode("dog1", "Woof!");
-  DialogueNode cat1 = new DialogueNode("test3", "Meow!");
-  test1.addChild(test2);
-  test1.addChild(test3);
-  test2.addChild(dog1);
-  test3.addChild(cat1);
+  // Calls the dialogue tests from Dialogue
+  testing();
 }  
 
 // Prints a 2d array
