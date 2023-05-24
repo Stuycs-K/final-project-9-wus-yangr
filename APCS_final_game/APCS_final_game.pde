@@ -9,7 +9,7 @@ void setup() {
   size(1000, 1000);
   PImage mapImg = loadImage("mapTest.png");
   createMap(mapImg);
-  printAr(map);
+  //printAr(map);
 }  
 
 // Prints a 2d array
