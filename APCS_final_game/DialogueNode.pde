@@ -10,7 +10,7 @@ class DialogueNode {
     parents = null;
     children = new ArrayList<DialogueNode>();
   }
-  
+    
   void addParent(DialogueNode parent) {
     parents.add(parent);
   }

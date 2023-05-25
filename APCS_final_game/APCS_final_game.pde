@@ -15,6 +15,11 @@ void setup() {
   
   // Calls the dialogue tests from Dialogue
   testing();
+  
+  //sets all default values inventory to be false;
+  for(int i = 0; i < inventory.length; i++){
+   inventory[i] = false;  
+  }
 }  
 
 // Prints a 2d array

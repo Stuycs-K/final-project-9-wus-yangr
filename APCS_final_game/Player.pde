@@ -4,6 +4,9 @@ public int clickX = playerX;
 public int clickY = playerY;
 public int playerRadius = 25;
 
+//corresponding object ids will correspond to their respective id's in this inventory 
+public boolean[] inventory = new boolean[10];
+
 //COMMENT OUT POINT AND CLICK WHEN DOING WASD OR IT WONT WORK
 
 //temporary WASD movement
