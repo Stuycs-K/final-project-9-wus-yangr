@@ -29,3 +29,8 @@ Have not tested code yet due to it requiring other methods from other classes no
 Created skills class w/ complete dice roll method
 Created collidable class
 Created preliminary interactable & door child classes
+
+### date 5/23/2023
+
+Added player inventory boolean array 
+Added possible dialogue bank array < needs to be discussed w/ partner
