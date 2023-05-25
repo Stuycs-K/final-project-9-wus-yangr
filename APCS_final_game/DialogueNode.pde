@@ -26,4 +26,8 @@ class DialogueNode {
   DialogueNode getChild(int childIndex) {
     return children.get(childIndex);
   }
+  
+  boolean hasChild(){
+   return(children.size() > 0);  
+  }
 }

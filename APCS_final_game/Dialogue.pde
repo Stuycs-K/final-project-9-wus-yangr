@@ -13,8 +13,8 @@ void testing() {
   test1.addChild(test3);
   test2.addChild(dog1);
   test3.addChild(cat1);
-  dialogueBank[0] = test1; 
-  dialogueBank[1] = testA;
+  //dialogueBank[0][0] = test1; 
+  //dialogueBank[0][1] = testA;
   
   // Asks if the player wants to select 1 or 2
   System.out.println(test1.text());
@@ -26,4 +26,21 @@ void testing() {
   int CHANGE_ME = 0;
   
   System.out.println(test1.getChild(CHANGE_ME).getChild(0).text());
+}
+
+void initializingBank(){
+ DialogueNode oID1 = new DialogueNode("[0][0]", "Choose. Yes or No.");
+ DialogueNode oID1a = new DialogueNode("[0][1]", "Yes.");
+ DialogueNode oID1b = new DialogueNode("[0][2]", "No.");
+ DialogueNode oID1a1 = new DialogueNode("[0][3]", "Die.");
+ DialogueNode oID1b1 = new DialogueNode("[0][5]", "Ok."); 
+ /*
+ dialogueBank[0][0] = objectID1; 
+ dialogueBank[0][1] = objectID1a;
+ dialogueBank[0][2] = objectID1b;
+ dialogueBank[0][3] = objectID1a1;
+ dialogueBank[0][5] = objectID1b1;
+ */
+ 
+ objectID1.addChild()
 }
