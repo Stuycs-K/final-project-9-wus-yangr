@@ -7,10 +7,15 @@
 Created the Player class
 Added basic WASD and point-and-click movement for testing purposes
 
-### date 5/23/23
+### date 5/23/2023
 
 Created image to map converter
 Created Dialogue Nodes
+
+### date 5/24/2023
+
+Added basic object detection
+Created dialogue box
 
 ## GROUP MEMBER 2 : Randy Yang
 
