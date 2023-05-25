@@ -42,6 +42,7 @@ public void mousePressed() {
   clickX = mouseX;
   clickY = mouseY;
   }
+  findPath(mouseX/gridSize,mouseY/gridSize);
 }
 
 // checks what quadrant player is in
