@@ -38,8 +38,10 @@ void createMap(PImage mapImg) {
    for (int j = 0; j < map[0].length; j++) {
     int pixel = mapImg.get(i,j);
     //System.out.println(pixel);
+    // if the pixel is black, make it a wall
     if (pixel == -16777216) {
       map[i][j] = COLLIDE;
+    // if the pixel is white, make it a space
     } else if (pixel == -1) {
       map[i][j] = SPACE;
     }
@@ -55,14 +57,14 @@ void draw() {
   path.remove(path.size()-1);
   }
   background(color(0));
-  //noStroke();
+  noStroke();
   drawMap();
   fill(105);
   circle(playerX, playerY, playerRadius);
   
   // player's coord marker
-  fill(color(255,0,0));
-  circle(playerX,playerY, 3);
+  /**fill(color(255,0,0));
+  circle(playerX,playerY, 3);**/
   
   // draw a button for dialogue progression
   fill(color(155,155,155));
