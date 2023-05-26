@@ -17,6 +17,10 @@ Created Dialogue Nodes
 Added basic object detection
 Created dialogue box
 
+### date 5/25/2023
+
+Worked on pathfinding
+
 ## GROUP MEMBER 2 : Randy Yang
 
 ### date 5/22/2023
@@ -32,5 +36,5 @@ Created preliminary interactable & door child classes
 
 ### date 5/23/2023
 
-Added player inventory boolean array 
+Added player inventory boolean array
 Added possible dialogue bank array < needs to be discussed w/ partner
