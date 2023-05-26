@@ -5,16 +5,18 @@ public class Interactable extends Collidable {
   String name;
   int xCor;
   int yCor;
+  color intColor;
   
   public Interactable(int id) {
     super(id);
   }
   
-  public Interactable(int id, String name, int xCor, int yCor) {
+  public Interactable(int id, String name, int xCor, int yCor, color intColor) {
     super(id);
     this.name = name;
     this.xCor = xCor;
     this.yCor = yCor;
+    this.intColor = intColor;
     map[xCor][yCor] = INTERACTABLE;
   }
   
@@ -24,6 +26,10 @@ public class Interactable extends Collidable {
   
   public int getYCor() {
     return yCor;
+  }
+  
+  public color getColor() {
+    return intColor;
   }
   
   // checks if player is in range and wants to interact with the NPC

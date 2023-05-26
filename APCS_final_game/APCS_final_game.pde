@@ -14,10 +14,15 @@ void setup() {
   createMap(mapImg);
   //printAr(map);
   
-  // Calls tests
   // testing(); <--- this one is for dialogue
-  Interactable bob = new Interactable(100,"bob",2,7);
-  interactables.add(bob);
+  
+  // Sets up Interactables
+  Interactable doc = new Interactable(100,"Doc",1,13,color(255,0,0));
+  interactables.add(doc);
+  Interactable mech = new Interactable(101,"The Mechanic",10,1,color(0,255,0));
+  interactables.add(mech);
+  Interactable big = new Interactable(102,"Big Johnny",18,18,color(0,0,255));
+  interactables.add(big);
   
   //sets all default values inventory to be false;
   for(int i = 0; i < inventory.length; i++){
@@ -73,9 +78,9 @@ void draw() {
   rect(1050,850,400,100);
   
   // draws interactables
-  fill(color(255,0,0));
   for (Interactable item : interactables) {
     //System.out.println(item.getXCor() + " " + item.getYCor());
+    fill(item.getColor());
     circle(item.getXCor()*gridSize+gridSize/2,item.getYCor()*gridSize+gridSize/2,playerRadius);
   }
     
