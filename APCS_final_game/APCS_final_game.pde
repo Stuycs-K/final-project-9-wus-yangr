@@ -49,10 +49,10 @@ void createMap(PImage mapImg) {
 
 void draw() {
   if (path.size() > 0) {
-  playerX = path.get(0)[0]*gridSize + gridSize/2;
-  playerY = path.get(0)[1]*gridSize + gridSize/2;
+  playerX = path.get(path.size()-1)[0]*gridSize + gridSize/2;
+  playerY = path.get(path.size()-1)[1]*gridSize + gridSize/2;
   System.out.println(playerX + " " + playerY + " pathsize:" + path.size());
-  path.remove(0);
+  path.remove(path.size()-1);
   }
   background(color(0));
   //noStroke();

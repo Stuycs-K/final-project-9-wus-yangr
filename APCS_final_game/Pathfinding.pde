@@ -24,14 +24,13 @@ ArrayList<int[]> findPath(int x, int y) {
   //printAr(mapClone);
   solve(path.get(0)[0], path.get(0)[1], 0, mapClone);
   //printAr(mapClone);
+  path.remove(0);
   return path;
 }
 
 int solve(int row, int col, int count, int[][] maze) {
-
-  //expand(x, y);
-
     if(maze[row][col] == END){
+      path.add(new int[] {row,col});
       return count;
     }
     else if(maze[row][col] ==  1 || maze[row][col] == PATH || maze[row][col] == CHECKED){
