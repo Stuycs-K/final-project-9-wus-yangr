@@ -1,7 +1,7 @@
 int START = -2;
 int END = -3;
-boolean found;
-int[][] directions = {{0,1},{0,-1},{1,0},{-1,0}};
+boolean found = false;
+int[][] directions = {{0, 1}, {0, -1}, {1, 0}, {-1, 0}};
 ArrayList<int[]> path = new ArrayList<int[]>();
 int[][] mapClone = new int[map.length][map[0].length];
 
@@ -10,39 +10,39 @@ int[][] mapClone = new int[map.length][map[0].length];
 // given an x and y, find the path from the player's grid to the x and y
 ArrayList<int[]> findPath(int x, int y) {
   for (int i = 0; i < map.length; i++) {
-  for (int j = 0; j < map[0].length; j++) {
-    mapClone[i][j] = map[i][j];
-}
-}
+    for (int j = 0; j < map[0].length; j++) {
+      mapClone[i][j] = map[i][j];
+    }
+  }
   ArrayList<int[]> listOfCoords = new ArrayList<int[]>();
-  listOfCoords.add(new int[] {playerX/gridSize,playerY/gridSize});
+  listOfCoords.add(new int[] {playerX/gridSize, playerY/gridSize});
   //System.out.println(x + " " + y);
   path.add(listOfCoords.get(0));
-  solve(x,y);
+  solve(x, y);
   return listOfCoords;
 }
 
 void solve(int x, int y) {
   mapClone[path.get(0)[0]][path.get(0)[1]] = START;
   mapClone[x][y] = END;
-  expand(x,y);
+  expand(x, y);
 }
 
-boolean expand(int x, int y) {
+void expand(int x, int y) {
   //printAr(mapClone);
-  path.add(new int[] {x,y});
+  path.add(new int[] {x, y});
   if (mapClone[x][y] == END) {
-    return true;
-  }
-  else if (mapClone[x][y] == 0) {
-  for (int i = 0; i < 4; i++) {
+    found = true;
+  } else {
+    if (mapClone[x][y] == 0) {
+      for (int i = 0; i < 4; i++) {
         mapClone[x][y] = 2;
-        if (expand(x+directions[i][0],y+directions[i][1])) {
+        expand(x+directions[i][0], y+directions[i][1]);
+        if (found) {
           System.out.println("WHEE");
-          return true;
         }
       }
+    }
+    path.remove(path.size()-1);
   }
-  path.remove(path.size()-1);
-  return false;
 }
