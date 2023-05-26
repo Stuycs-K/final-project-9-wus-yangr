@@ -8,7 +8,6 @@ void testing() {
   DialogueNode test3 = new DialogueNode("test3", "1: Cat.");
   DialogueNode dog1 = new DialogueNode("dog1", "Woof!");
   DialogueNode cat1 = new DialogueNode("cat1", "Meow!");
-  DialogueNode testA = new DialogueNode("testA", "What's your favorite animal?");
   test1.addChild(test2);
   test1.addChild(test3);
   test2.addChild(dog1);
