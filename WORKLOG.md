@@ -34,7 +34,11 @@ Created skills class w/ complete dice roll method
 Created collidable class
 Created preliminary interactable & door child classes
 
-### date 5/23/2023
+### date 5/24/2023
 
 Added player inventory boolean array
 Added possible dialogue bank array < needs to be discussed w/ partner
+
+### date 5/25/2023
+
+Working on dialogue method
