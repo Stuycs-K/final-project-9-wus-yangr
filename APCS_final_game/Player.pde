@@ -10,8 +10,8 @@ public void mousePressed() {
   // mouse must be within bounds
   if (mouseX < xWidth && mouseY < yHeight) {
     findPath(mouseX/gridSize,mouseY/gridSize);
-    playerX = path.get(path.size()-1)[0]*gridSize + gridSize/2;
-    playerY = path.get(path.size()-1)[1]*gridSize + gridSize/2;
+    //playerX = path.get(path.size()-1)[0]*gridSize + gridSize/2;
+    //playerY = path.get(path.size()-1)[1]*gridSize + gridSize/2;
     //System.out.println(playerX + " " + playerY);
   }
 }
