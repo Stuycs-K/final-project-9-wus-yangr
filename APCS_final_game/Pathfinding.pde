@@ -7,7 +7,7 @@ int[][] directions = {{0, 1}, {0, -1}, {1, 0}, {-1, 0}};
 ArrayList<int[]> path = new ArrayList<int[]>();
 int[][] mapClone = new int[map.length][map[0].length];
 
-// BFS for now, to ensure that it works
+
 
 // given an x and y, find the path from the player's grid to the x and y
 ArrayList<int[]> findPath(int x, int y) {
@@ -16,7 +16,7 @@ ArrayList<int[]> findPath(int x, int y) {
       mapClone[i][j] = map[i][j];
     }
   }
-  System.out.println(x + " " + y);
+  //System.out.println(x + " " + y);
   path.add(new int[] {playerX/gridSize, playerY/gridSize});
   mapClone[path.get(0)[0]][path.get(0)[1]] = START;
   mapClone[x][y] = END;
@@ -27,6 +27,7 @@ ArrayList<int[]> findPath(int x, int y) {
   return path;
 }
 
+// DFS
 int solve(int row, int col, int count, int[][] maze) {
     if(maze[row][col] == END){
       path.add(new int[] {row,col});

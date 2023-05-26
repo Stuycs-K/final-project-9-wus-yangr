@@ -4,6 +4,7 @@ int xWidth = 1000;
 int yHeight = 1000;
 int gridSize = 50;
 int[][] map = new int[xWidth/gridSize][yHeight/gridSize];
+ArrayList<Interactable> interactables = new ArrayList<Interactable>(); 
 static int SPACE = 0;
 static int COLLIDE = 1;
 
@@ -13,8 +14,10 @@ void setup() {
   createMap(mapImg);
   //printAr(map);
   
-  // Calls the dialogue tests from Dialogue
-  // testing();
+  // Calls tests
+  // testing(); <--- this one is for dialogue
+  Interactable bob = new Interactable(100,"bob",2,7);
+  interactables.add(bob);
   
   //sets all default values inventory to be false;
   for(int i = 0; i < inventory.length; i++){
@@ -50,14 +53,9 @@ void createMap(PImage mapImg) {
 }
 
 void draw() {
-  if (path.size() > 0) {
-  playerX = path.get(path.size()-1)[0]*gridSize + gridSize/2;
-  playerY = path.get(path.size()-1)[1]*gridSize + gridSize/2;
-  System.out.println(playerX + " " + playerY + " pathsize:" + path.size());
-  path.remove(path.size()-1);
-  }
+  takeAction();
   background(color(0));
-  noStroke();
+  //noStroke();
   drawMap();
   fill(105);
   circle(playerX, playerY, playerRadius);
@@ -74,6 +72,12 @@ void draw() {
   }
   rect(1050,850,400,100);
   
+  // draws interactables
+  fill(color(255,0,0));
+  for (Interactable item : interactables) {
+    //System.out.println(item.getXCor() + " " + item.getYCor());
+    circle(item.getXCor()*gridSize+gridSize/2,item.getYCor()*gridSize+gridSize/2,playerRadius);
+  }
     
   // Draws the dialogue to the box
   fill(color(255));
@@ -81,6 +85,17 @@ void draw() {
   text("it's me boy", 1050, 200);
   text("I'm the PS4", 1050, 250);
   text("speaking to you inside your brain", 1050, 300);
+}
+
+// called during draw() to call functions unrelated to drawing
+void takeAction() {
+  // pathfinding
+  if (path.size() > 0) {
+  playerX = path.get(path.size()-1)[0]*gridSize + gridSize/2;
+  playerY = path.get(path.size()-1)[1]*gridSize + gridSize/2;
+  //System.out.println(playerX + " " + playerY + " pathsize:" + path.size());
+  path.remove(path.size()-1);
+  }
 }
 
 // Draws the map

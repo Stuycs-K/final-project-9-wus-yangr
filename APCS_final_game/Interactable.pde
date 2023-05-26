@@ -1,6 +1,26 @@
 public class Interactable extends Collidable {
+  int id;
+  String name;
+  int xCor;
+  int yCor;
+  
   public Interactable(int id) {
     super(id);
+  }
+  
+  public Interactable(int id, String name, int xCor, int yCor) {
+    super(id);
+    this.name = name;
+    this.xCor = xCor;
+    this.yCor = yCor;
+  }
+  
+  public int getXCor() {
+    return xCor;
+  }
+  
+  public int getYCor() {
+    return yCor;
   }
 
   public void dialogue() {
