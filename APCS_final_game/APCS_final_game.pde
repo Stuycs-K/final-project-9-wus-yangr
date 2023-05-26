@@ -51,7 +51,6 @@ void draw() {
   background(color(0));
   //noStroke();
   drawMap();
-  move();
   fill(105);
   circle(playerX, playerY, playerRadius);
   
