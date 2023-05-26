@@ -14,7 +14,7 @@ void setup() {
   //printAr(map);
   
   // Calls the dialogue tests from Dialogue
-  testing();
+  // testing();
   
   //sets all default values inventory to be false;
   for(int i = 0; i < inventory.length; i++){
@@ -48,6 +48,12 @@ void createMap(PImage mapImg) {
 }
 
 void draw() {
+  if (path.size() > 0) {
+  playerX = path.get(0)[0]*gridSize + gridSize/2;
+  playerY = path.get(0)[1]*gridSize + gridSize/2;
+  System.out.println(playerX + " " + playerY + " pathsize:" + path.size());
+  path.remove(0);
+  }
   background(color(0));
   //noStroke();
   drawMap();

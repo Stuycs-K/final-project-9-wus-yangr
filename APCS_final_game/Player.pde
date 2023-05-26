@@ -7,13 +7,12 @@ public boolean[] inventory = new boolean[10];
 
 // point-and-click pathfinding: greedy, there shouldn't be any locations on the map where A* would be necessary
 public void mousePressed() {
-  // mouse must be within bo
-// unds
+  // mouse must be within bounds
   if (mouseX < xWidth && mouseY < yHeight) {
-    ArrayList<int[]> listOfCoords = findPath(mouseX/gridSize,mouseY/gridSize);
+    findPath(mouseX/gridSize,mouseY/gridSize);
     playerX = path.get(path.size()-1)[0]*gridSize + gridSize/2;
     playerY = path.get(path.size()-1)[1]*gridSize + gridSize/2;
-    System.out.println(playerX + " " + playerY);
+    //System.out.println(playerX + " " + playerY);
   }
 }
 
