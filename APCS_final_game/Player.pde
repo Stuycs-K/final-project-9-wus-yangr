@@ -9,7 +9,12 @@ public boolean[] inventory = new boolean[10];
 public void mousePressed() {
   // mouse must be within bounds
   if (mouseX < xWidth && mouseY < yHeight && map[mouseX/gridSize][mouseY/gridSize] != COLLIDE) {
-    findPath(mouseX/gridSize,mouseY/gridSize);
+    if (map[mouseX/gridSize][mouseY/gridSize] != INTERACTABLE) {
+      findPath(mouseX/gridSize,mouseY/gridSize);
+    }
+    for (Interactable item : interactables) {
+      item.checkInteract(mouseX/gridSize,mouseY/gridSize);
+    }
     //playerX = path.get(path.size()-1)[0]*gridSize + gridSize/2;
     //playerY = path.get(path.size()-1)[1]*gridSize + gridSize/2;
     //System.out.println(playerX + " " + playerY);

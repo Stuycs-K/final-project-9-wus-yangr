@@ -1,3 +1,5 @@
+int INTERACTABLE = 2;
+
 public class Interactable extends Collidable {
   int id;
   String name;
@@ -13,6 +15,7 @@ public class Interactable extends Collidable {
     this.name = name;
     this.xCor = xCor;
     this.yCor = yCor;
+    map[xCor][yCor] = INTERACTABLE;
   }
   
   public int getXCor() {
@@ -21,6 +24,18 @@ public class Interactable extends Collidable {
   
   public int getYCor() {
     return yCor;
+  }
+  
+  // checks if player is in range and wants to interact with the NPC
+  // takes int x and y as coordinates, called on mousePressed
+  public boolean checkInteract(int x, int y) {
+    // checks if player is within 2 blocks and if mouse is in the NPC's block
+    if (sqrt(pow(abs(playerX/gridSize-xCor),2)+pow(abs(playerY/gridSize-yCor),2)) <= 2
+    && x == xCor && y == yCor) {
+      System.out.println(name + " says hi");
+      return true;
+    }
+    return false;
   }
 
   public void dialogue() {
