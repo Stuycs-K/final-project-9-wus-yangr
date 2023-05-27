@@ -21,6 +21,11 @@ Created dialogue box
 
 Worked on pathfinding
 
+### date 5/26/2023
+
+Finished basic pathfinding
+Added 3 NPCs and 3 Items
+
 ## GROUP MEMBER 2 : Randy Yang
 
 ### date 5/22/2023
