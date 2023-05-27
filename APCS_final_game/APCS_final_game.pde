@@ -16,13 +16,21 @@ void setup() {
   
   // testing(); <--- this one is for dialogue
   
-  // Sets up Interactables
+  // Sets up NPCs
   Interactable doc = new Interactable(100,"Doc",1,13,color(255,0,0));
   interactables.add(doc);
-  Interactable mech = new Interactable(101,"The Mechanic",10,1,color(0,255,0));
+  Interactable mech = new Interactable(101,"The Mechanic",10,1,color(0,0,255));
   interactables.add(mech);
-  Interactable big = new Interactable(102,"Big Johnny",18,18,color(0,0,255));
+  Interactable big = new Interactable(102,"Big Johnny",18,18,color(0,255,0));
   interactables.add(big);
+  
+  // Sets up Items
+  Interactable ab = new Interactable(200, "Afterburner MN 100",1,18,color(155,0,0));
+  interactables.add(ab);
+  Interactable se = new Interactable(200, "Small Shield Extender",9,1,color(0,0,155));
+  interactables.add(se);
+  Interactable mp = new Interactable(200, "Metal Plates",17,10,color(0,155,0));
+  interactables.add(mp);
   
   //sets all default values inventory to be false;
   for(int i = 0; i < inventory.length; i++){
@@ -81,7 +89,11 @@ void draw() {
   for (Interactable item : interactables) {
     //System.out.println(item.getXCor() + " " + item.getYCor());
     fill(item.getColor());
-    circle(item.getXCor()*gridSize+gridSize/2,item.getYCor()*gridSize+gridSize/2,playerRadius);
+    if (item.getID() < 200) {
+      circle(item.getXCor()*gridSize+gridSize/2,item.getYCor()*gridSize+gridSize/2,playerRadius);
+    } else if (item.getID() < 300) {
+      square(item.getXCor()*gridSize+gridSize/4,item.getYCor()*gridSize+gridSize/4,gridSize/2);
+    }
   }
     
   // Draws the dialogue to the box

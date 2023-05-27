@@ -1,5 +1,13 @@
 int INTERACTABLE = 2;
 
+/** 
+TODO:
+create NPC and Item classes that inherit from this: 
+NPCs have Portraits pngs that appear in the dialogue box and appear as circles on the map
+Items do not have Portrait pngs and appear as squares on the map
+Create draw functions within Interactable/NPC/Item so they don't clog up the main file's draw function
+**/
+
 public class Interactable extends Collidable {
   int id;
   String name;
@@ -11,6 +19,7 @@ public class Interactable extends Collidable {
     super(id);
   }
   
+  // change of plans: id > 200 is an Item (square symbol) and id > 100 is an NPC (circle symbol)
   public Interactable(int id, String name, int xCor, int yCor, color intColor) {
     super(id);
     this.name = name;
@@ -18,6 +27,10 @@ public class Interactable extends Collidable {
     this.yCor = yCor;
     this.intColor = intColor;
     map[xCor][yCor] = INTERACTABLE;
+  }
+  
+  public int getId() {
+    return id;
   }
   
   public int getXCor() {
