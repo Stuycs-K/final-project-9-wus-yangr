@@ -26,6 +26,11 @@ Worked on pathfinding
 Finished basic pathfinding
 Added 3 NPCs and 3 Items
 
+### date 5/27/2023
+
+Decreased map pixel size to fit on smaller screens
+Revamped map from 20x20 to 40x40
+
 ## GROUP MEMBER 2 : Randy Yang
 
 ### date 5/22/2023
