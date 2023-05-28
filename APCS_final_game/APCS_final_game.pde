@@ -1,15 +1,15 @@
 import java.util.Scanner;
 
-int xWidth = 1000;
-int yHeight = 1000;
-int gridSize = 50;
+int xWidth = 500;
+int yHeight = 500;
+int gridSize = 25;
 int[][] map = new int[xWidth/gridSize][yHeight/gridSize];
 ArrayList<Interactable> interactables = new ArrayList<Interactable>(); 
 static int SPACE = 0;
 static int COLLIDE = 1;
 
 void setup() {
-  size(1500, 1000);
+  size(750, 500);
   PImage mapImg = loadImage("mapTest.png");
   createMap(mapImg);
   //printAr(map);
@@ -77,14 +77,6 @@ void draw() {
   /**fill(color(255,0,0));
   circle(playerX,playerY, 3);**/
   
-  // draw a button for dialogue progression
-  fill(color(155,155,155));
-  // if mouse is over button, light up the button
-  if (1050 < mouseX && mouseX < 1450 && 850 < mouseY && mouseY < 950) {
-    fill(color(255));
-  }
-  rect(1050,850,400,100);
-  
   // draws interactables
   for (Interactable item : interactables) {
     //System.out.println(item.getXCor() + " " + item.getYCor());
@@ -95,6 +87,14 @@ void draw() {
       square(item.getXCor()*gridSize+gridSize/4,item.getYCor()*gridSize+gridSize/4,gridSize/2);
     }
   }
+  
+  // draw a button for dialogue progression
+  fill(color(155,155,155));
+  // if mouse is over button, light up the button
+  if (1050 < mouseX && mouseX < 1450 && 850 < mouseY && mouseY < 950) {
+    fill(color(255));
+  }
+  rect(1050,850,400,100);
     
   // Draws the dialogue to the box
   fill(color(255));

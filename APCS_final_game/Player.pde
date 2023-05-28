@@ -1,6 +1,6 @@
-public int playerX = 500;
-public int playerY = 600;
-public int playerRadius = 25;
+public int playerX = (int) (xWidth/2);
+public int playerY = (int) (yHeight/2+(yHeight/10));
+public int playerRadius = (int) (gridSize/2+1);
 
 //corresponding object ids will correspond to their respective id's in this inventory 
 public boolean[] inventory = new boolean[10];
