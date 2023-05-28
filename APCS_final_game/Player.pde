@@ -10,6 +10,8 @@ public void mousePressed() {
   // mouse must be within bounds
   if (mouseX < xWidth && mouseY < yHeight && map[mouseX/gridSize][mouseY/gridSize] != COLLIDE) {
     if (map[mouseX/gridSize][mouseY/gridSize] != INTERACTABLE) {
+      // resets path if player cancels
+      path = new ArrayList<int[]>();
       findPath(mouseX/gridSize,mouseY/gridSize);
     }
     for (Interactable item : interactables) {
