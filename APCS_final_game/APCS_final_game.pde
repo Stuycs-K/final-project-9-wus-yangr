@@ -1,35 +1,37 @@
 import java.util.Scanner;
 
-int xWidth = 1000;
-int yHeight = 1000;
-int gridSize = 50;
+// width/gridSize *has* to equal map.length
+// CURRENT MAP SIZE: 40x40
+int xWidth = 800;
+int yHeight = 800;
+int gridSize = 20;
 int[][] map = new int[xWidth/gridSize][yHeight/gridSize];
 ArrayList<Interactable> interactables = new ArrayList<Interactable>(); 
 static int SPACE = 0;
 static int COLLIDE = 1;
 
 void setup() {
-  size(1500, 1000);
-  PImage mapImg = loadImage("mapTest.png");
+  size(800, 800);
+  PImage mapImg = loadImage("mapTest40x40.png");
   createMap(mapImg);
   //printAr(map);
   
   // testing(); <--- this one is for dialogue
   
   // Sets up NPCs
-  Interactable doc = new Interactable(100,"Doc",1,13,color(255,0,0));
+  Interactable doc = new Interactable(100,"Doc",4,33,color(255,0,0));
   interactables.add(doc);
-  Interactable mech = new Interactable(101,"The Mechanic",10,1,color(0,0,255));
+  Interactable mech = new Interactable(101,"The Mechanic",1,12,color(0,0,255));
   interactables.add(mech);
   Interactable big = new Interactable(102,"Big Johnny",18,18,color(0,255,0));
   interactables.add(big);
   
   // Sets up Items
-  Interactable ab = new Interactable(200, "Afterburner MN 100",1,18,color(155,0,0));
+  Interactable ab = new Interactable(200, "Afterburner MN 100",36,28,color(155,0,0));
   interactables.add(ab);
-  Interactable se = new Interactable(200, "Small Shield Extender",9,1,color(0,0,155));
+  Interactable se = new Interactable(200, "Small Shield Extender",5,10,color(0,0,155));
   interactables.add(se);
-  Interactable mp = new Interactable(200, "Metal Plates",17,10,color(0,155,0));
+  Interactable mp = new Interactable(200, "Metal Plates",21,17,color(0,155,0));
   interactables.add(mp);
   
   //sets all default values inventory to be false;
@@ -84,14 +86,6 @@ void draw() {
   /**fill(color(255,0,0));
   circle(playerX,playerY, 3);**/
   
-  // draw a button for dialogue progression
-  fill(color(155,155,155));
-  // if mouse is over button, light up the button
-  if (1050 < mouseX && mouseX < 1450 && 850 < mouseY && mouseY < 950) {
-    fill(color(255));
-  }
-  rect(1050,850,400,100);
-  
   // draws interactables
   for (Interactable item : interactables) {
     //System.out.println(item.getXCor() + " " + item.getYCor());
@@ -102,6 +96,15 @@ void draw() {
       square(item.getXCor()*gridSize+gridSize/4,item.getYCor()*gridSize+gridSize/4,gridSize/2);
     }
   }
+  
+  /** REMOVED FEATURE - for now
+  // draw a button for dialogue progression
+  fill(color(155,155,155));
+  // if mouse is over button, light up the button
+  if (1050 < mouseX && mouseX < 1450 && 850 < mouseY && mouseY < 950) {
+    fill(color(255));
+  }
+  rect(1050,850,400,100);
     
   // Draws the dialogue to the box
   fill(color(255));
@@ -109,6 +112,7 @@ void draw() {
   text("it's me boy", 1050, 200);
   text("I'm the PS4", 1050, 250);
   text("speaking to you inside your brain", 1050, 300);
+  **/
 }
 
 // called during draw() to call functions unrelated to drawing
@@ -119,6 +123,9 @@ void takeAction() {
   playerY = path.get(path.size()-1)[1]*gridSize + gridSize/2;
   //System.out.println(playerX + " " + playerY + " pathsize:" + path.size());
   path.remove(path.size()-1);
+  } else {
+    // Prints player coord to easily figure out where to place Interactables
+    // System.out.println(playerX/gridSize + " " + playerY/gridSize);
   }
 }
 
