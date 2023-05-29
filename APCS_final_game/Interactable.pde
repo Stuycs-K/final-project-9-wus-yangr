@@ -69,8 +69,8 @@ public class Interactable extends Collidable {
         if (waitingForInput) {
           System.out.println(current.getChild(0).text());
           System.out.println(current.getChild(1).text());
+          waitingForInput = false; 
         }
-        waitingForInput = true;
         //advance to option 1
         if (key == '0') {
           current = current.getChild(0).getChild(0);
@@ -89,6 +89,7 @@ public class Interactable extends Collidable {
         System.out.println(current.text());
         playerTurn++;
         playerTurn %= 2;
+        waitingForInput = true; 
       }
     }
   }
