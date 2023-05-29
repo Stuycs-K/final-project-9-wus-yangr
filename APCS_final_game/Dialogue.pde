@@ -25,7 +25,8 @@ void testing() {
   System.out.println(test1.getChild(CHANGE_ME).getChild(0).text());
 }
 
-void initializingBank(){
+//for testing dialogue() but format can be used for the actual initialization of the bank
+void initializingTestBank(){
  DialogueNode oID1 = new DialogueNode("[0][0]", "Choose. Yes or No.");
  DialogueNode oID1a = new DialogueNode("[0][1]", "0 - Yes.");
  DialogueNode oID1b = new DialogueNode("[0][2]", "1 - No.");

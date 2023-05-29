@@ -38,6 +38,13 @@ void setup() {
   for(int i = 0; i < inventory.length; i++){
    inventory[i] = false;  
   }
+  
+  //dialogue() test
+  /*
+  initializingTestBank(); 
+  Interactable dialogueTester = new Interactable(100);
+  dialogueTester.dialogue();
+  */
 }  
 
 // Prints a 2d array
