@@ -52,3 +52,11 @@ Added possible dialogue bank array < needs to be discussed w/ partner
 ### date 5/25/2023
 
 Working on dialogue method
+
+### date 5/26/2023
+
+WIP dialogue method
+
+### date 5/29/2023 
+
+WIP dialogue method
