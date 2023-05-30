@@ -1,5 +1,5 @@
-public int playerX = (int) (xWidth/2);
-public int playerY = (int) (yHeight/2+(yHeight/10));
+public int playerX = (int) 1*gridSize+gridSize/2;
+public int playerY = (int) 38*gridSize+gridSize/2;
 public int playerRadius = (int) (gridSize/2+1);
 
 //corresponding object ids will correspond to their respective id's in this inventory 

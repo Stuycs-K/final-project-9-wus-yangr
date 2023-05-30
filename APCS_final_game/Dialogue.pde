@@ -45,3 +45,8 @@ void initializingTestBank(){
  oID1a.addChild(oID1a1);
  oID1b.addChild(oID1b1);
 }
+
+void docSetup() {
+  DialogueNode docFirst = new DialogueNode("docFirst", "A man in a clean, white jacket sits behind the desk.");
+  // read from file into the dialoguenode data structure
+}
