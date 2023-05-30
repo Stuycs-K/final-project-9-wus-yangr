@@ -1,4 +1,7 @@
 int INTERACTABLE = 2;
+boolean waitingForInput = false;
+int playerTurn = 0;
+int option = 0;
 
 /**
  TODO:
@@ -14,6 +17,7 @@ public class Interactable extends Collidable {
   int xCor;
   int yCor;
   color intColor;
+  boolean firstInteraction = true; 
 
   public Interactable(int id) {
     super(id);
@@ -49,55 +53,54 @@ public class Interactable extends Collidable {
   // takes int x and y as coordinates, called on mousePressed
   public boolean checkInteract(int x, int y) {
     // checks if player is within 2 blocks and if mouse is in the NPC's block
-    if (sqrt(pow(abs(playerX/gridSize-xCor),2)+pow(abs(playerY/gridSize-yCor),2)) <= 1.5
-    && x == xCor && y == yCor) {
+    if (sqrt(pow(abs(playerX/gridSize-xCor), 2)+pow(abs(playerY/gridSize-yCor), 2)) <= 1.5
+      && x == xCor && y == yCor) {
       System.out.println(name + " says hi");
       return true;
     }
     return false;
   }
 
+//recentInteractables has to be set to this interactable for this to run properly 
   public void dialogue() {
-    int playerTurn = 0;
-    boolean waitingForInput = false;
+    if(firstInteraction){
+      DialogueNode current = dialogueBank[getID() - 100];
+      recent = current; 
+    }
     //gets corresponding dialogueBank index based on objectID since interactables start from 100
-    DialogueNode current = dialogueBank[getID() - 100];
-    while (current.hasChild()) {
+    if (recent.hasChild()) {
       //if player turn, wait for input
-      while (playerTurn == 1) {
-        //Print once then wait for player input
-        if (waitingForInput) {
-          //prints the two options
-          System.out.println(current.getChild(0).text());
-          System.out.println(current.getChild(1).text());
-          waitingForInput = false;
-          //sets it to false so this only runs once
+      if (playerTurn == 1) {
+        //advance to option 1
+        if (option == 0) {
+          //advances twice due to our double node structure where theres the npc then player dialogue
+          //System.out.println("0 pressed");
+          recent = recent.getChild(0).getChild(0);
         }
-        else if (keyPressed) {
-          //advance to option 1
-          if (key == '0') {
-            //advances twice due to our double node structure where theres the npc then player dialogue
-            System.out.println("1 pressed");
-            current = current.getChild(0).getChild(0);
-            playerTurn++;
-            playerTurn %= 2;
-          }
-          //advance to option 2
-          if (key == '1') {
-            System.out.println("2 pressed");
-            current = current.getChild(1).getChild(0);
-            playerTurn++;
-            playerTurn %= 2;
-          }
+        //advance to option 2
+        if (option == 1) {
+          //System.out.println("1 pressed");
+          recent = recent.getChild(1).getChild(0);
         }
+        playerTurn++;
+        playerTurn %= 2;
         //System.out.println(playerTurn);
+        /*if(recent.hasChild()){
+          
+        }*/
       }
-      //if not player turn, print the current, set it to player turn & set waitingForInput to T
-      System.out.println(current.text());
-      playerTurn++;
-      playerTurn %= 2;
-      System.out.println(playerTurn);
-      waitingForInput = true;
+      if(playerTurn == 0){
+        //if not player turn, print the current, set it to player turn & set waitingForInput to T
+        System.out.println(recent.text());
+        if(recent.hasChild()){
+        System.out.println(recent.getChild(0).text());
+        System.out.println(recent.getChild(1).text());
+        playerTurn++;
+        playerTurn %= 2;
+        //System.out.println(playerTurn);
+        waitingForInput = true;
+        }
+      }
     }
   }
 }
