@@ -31,6 +31,10 @@ Added 3 NPCs and 3 Items
 Decreased map pixel size to fit on smaller screens
 Revamped map from 20x20 to 40x40
 
+### date 5/29/2023
+
+Merged big map
+
 ## GROUP MEMBER 2 : Randy Yang
 
 ### date 5/22/2023
@@ -57,6 +61,6 @@ Working on dialogue method
 
 WIP dialogue method
 
-### date 5/29/2023 
+### date 5/29/2023
 
 WIP dialogue method
