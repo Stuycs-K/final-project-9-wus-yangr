@@ -31,9 +31,9 @@ Added 3 NPCs and 3 Items
 Decreased map pixel size to fit on smaller screens
 Revamped map from 20x20 to 40x40
 
-### date 5/29/2023
+### date 5/30/2023
 
-Merged big map
+Wrote dialogue
 
 ## GROUP MEMBER 2 : Randy Yang
 
