@@ -42,12 +42,13 @@ void setup() {
   }
 
   //dialogue() test
-
+  /*
   initializingTestBank();
   Interactable dialogueTester = new Interactable(100);
   //recentInteractables should be set in surroundingInteractables method 
   recentInteractable = dialogueTester; 
   dialogueTester.dialogue();
+  */
 }
 
 // Prints a 2d array
