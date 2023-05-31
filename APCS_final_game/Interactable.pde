@@ -63,9 +63,9 @@ public class Interactable extends Collidable {
 
 //recentInteractables has to be set to this interactable for this to run properly 
   public void dialogue() {
+    //if its the firstInteraction w/ the npc, you initialize the dialogueNode recent as the corresponding starting dialogueNode
     if(firstInteraction){
-      DialogueNode current = dialogueBank[getID() - 100];
-      recent = current; 
+      recent = dialogueBank[getID() - 100];
     }
     //gets corresponding dialogueBank index based on objectID since interactables start from 100
     if (recent.hasChild()) {
@@ -74,20 +74,14 @@ public class Interactable extends Collidable {
         //advance to option 1
         if (option == 0) {
           //advances twice due to our double node structure where theres the npc then player dialogue
-          //System.out.println("0 pressed");
           recent = recent.getChild(0).getChild(0);
         }
         //advance to option 2
         if (option == 1) {
-          //System.out.println("1 pressed");
           recent = recent.getChild(1).getChild(0);
         }
         playerTurn++;
         playerTurn %= 2;
-        //System.out.println(playerTurn);
-        /*if(recent.hasChild()){
-          
-        }*/
       }
       if(playerTurn == 0){
         //if not player turn, print the current, set it to player turn & set waitingForInput to T
@@ -97,9 +91,14 @@ public class Interactable extends Collidable {
         System.out.println(recent.getChild(1).text());
         playerTurn++;
         playerTurn %= 2;
-        //System.out.println(playerTurn);
         waitingForInput = true;
+        firstInteraction = false; 
         }
+        /* might be needed later if we talk to the npc multiple times 
+        else{
+          firstInteraction = true; 
+        }
+        */
       }
     }
   }
