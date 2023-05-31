@@ -64,3 +64,7 @@ WIP dialogue method
 ### date 5/29/2023
 
 WIP dialogue method
+
+### date 5/30/2023
+
+Restructuring of dialogue method in progress
