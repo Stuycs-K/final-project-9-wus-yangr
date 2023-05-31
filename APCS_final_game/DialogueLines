@@ -26,7 +26,7 @@ A man in a clean, white jacket sits behind the desk.
 4 - "How badly was I hurt?"
 "You were lucky to get away with just a broken arm. I put you under, shot you up with some nanites. You might experience some soreness in the coming days."
 4-1 - "Nanites?"
-    - DOC_NAME
+    - "Non-toxic and tested for quality, I assure you."
 4-2 - Nod in thanks.
 5 - "Where am I?"
 The man cracks a smile. "Hailan, little colony in the middle of nowhere."
@@ -49,6 +49,7 @@ A woman in overalls fixes an engine in the center of the store. As you approach,
 1-1 - "A frigate."
 2-1 - "What's the difference?"
     - She eyes you up and down. "Yeesh. Crash must've knocked some sense out of you if you don't remember."
+    - "Afterburners come in different sizes. Frigates, shuttles, destroyers, corvettes, battleships, whatever."
 3 - "Metal Plates."
 "Nope. Don't have those. Those got bought out during the Collapse. But..." She scratches her chin.
 "The Graveyard's bound to have some. All sorts of old tech gets dumped there. Ask Big Johnny for the keys past the gate."
@@ -59,7 +60,29 @@ BIG JOHNNY
 A man stares out the window with a pair of binoculars.
 "Pilot."
 1 - "The Mechanic told me you could give me a gate key."
-"I can. Why should I?"
-1 - "I'll pay you."
-"See, it's not money we need 'round these parts. What can we do with Imperial credits? You see any banks in Central?"
-2 - "I'm on an officially sanctioned mission. They won't be pleased if I don't make it back."
+  - "I can. Why should I?"
+1-1 - "I'll pay you."
+  - "See, it's not money we need 'round these parts. What can we do with Imperial credits? You see any banks in Central?"
+1-2 - "I'm on an officially sanctioned mission. They won't be pleased if I don't make it back."
+2 - "Where can I get Metal Plates?"
+  - He points at a stack of metal on the balcony. It's perched precariously near the edge, looking like a stiff breeze could send it tumbling into the abyss.
+  - "Feel free to grab 'em."
+
+TWO-BRANCH STRUCTURE
+A man in a clean, white jacket sits behind the desk.
+"Ah, good to see you awake. That was quite the crash."
+- Nod.
+  "You can't stay for long. There's a hurricane coming in the next day or two, although the latest reports suggest it'll be sooner rather than later."
+  - "Alright, I'll be on my way, then."
+    "Not so fast. Your ship, damaged as it is, won't survive the flight."
+    - "Okay, thanks for the info." [Leave.]
+      "I hope I won't see you in my clinic again, but if you need any medical assistance, you know where to find me."
+    - "Where can I repair my ship?" [Leave.]
+      "Talk to the Mechanic, she's bound to have something for you."
+  - "How bad is the hurricane?"
+    "Bad enough that you'll crash again if you try flying in that mess."
+
+- "Crash?"
+  "You crashed off the southern coast." The man waves vaguely.
+  - "Southern coast of where?"
+  -
