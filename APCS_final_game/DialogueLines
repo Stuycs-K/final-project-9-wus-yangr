@@ -1,0 +1,65 @@
+DOC
+A man in a clean, white jacket sits behind the desk.
+(if DOC_NAME) Doc sits behind the desk.
+"Ah, good to see you awake. That was quite the crash."
+1 - Nod.
+2 - "Crash?"
+"You crashed off the southern coast." The man waves vaguely.
+3 - "I've had worse."
+"Yes, well." The man adjusts his glasses.
+> REPUTATION_RECKLESS++
+4 - "Were you the one that patched me up?"
+"I was." The man adjusts his glasses.
+"You can't stay for long. There's a hurricane coming in the next day or two, although the latest reports suggest it'll be sooner rather than later."
+1 - "Alright, I'll be on my way, then."
+"Not so fast."
+> REPUTATION_RECKLESS++
+2 - "How bad is the hurricane?"
+"Bad enough that you'll crash again if you try flying in that mess."
+"I'm no wrench monkey, but your ship took some damage. You'll want to take a look at that, make whatever repairs you need so you can leave."
+1 - "Okay, thanks for the info." [Leave.]
+"I hope I won't see you in my clinic again, but if you need any medical assistance, you know where to find me."
+2 - "Where's my ship?"
+"Tethered to the Dive Point. Take a right as soon as you leave the clinic, you'll be there." He points at the direction where, presumably, your ship is.
+3 - "Where can I get repairs?"
+"Talk to the Mechanic. Leave the industrial district, her shop's the first thing you see in Central."
+4 - "How badly was I hurt?"
+"You were lucky to get away with just a broken arm. I put you under, shot you up with some nanites. You might experience some soreness in the coming days."
+4-1 - "Nanites?"
+    - DOC_NAME
+4-2 - Nod in thanks.
+5 - "Where am I?"
+The man cracks a smile. "Hailan, little colony in the middle of nowhere."
+5-1 - "Interesting." [Leave this line of conversation.]
+    - "Oh, no, it's not an interesting place."
+5-2 - "Tell me more."
+    - He raises an eyebrow. "If you insist."
+    - lore dump here
+6 - "Who are you?"
+"You can call me Doc."
+> DOC_NAME = true
+
+THE MECHANIC
+A woman in overalls fixes an engine in the center of the store. As you approach, she takes off her soot-stained goggles.
+"Hey there, offworlder. Doc told me you were stopping by."
+"What parts do you need?"
+1 - "What's for sale?"
+2 - "An Afterburner."
+"Yeah, I've got one of those. 100MN, 1KMN, not sure what size ship you're flying."
+1-1 - "A frigate."
+2-1 - "What's the difference?"
+    - She eyes you up and down. "Yeesh. Crash must've knocked some sense out of you if you don't remember."
+3 - "Metal Plates."
+"Nope. Don't have those. Those got bought out during the Collapse. But..." She scratches her chin.
+"The Graveyard's bound to have some. All sorts of old tech gets dumped there. Ask Big Johnny for the keys past the gate."
+4 - "A Shield Extender."
+"Yeah, what size d'you need?"
+
+BIG JOHNNY
+A man stares out the window with a pair of binoculars.
+"Pilot."
+1 - "The Mechanic told me you could give me a gate key."
+"I can. Why should I?"
+1 - "I'll pay you."
+"See, it's not money we need 'round these parts. What can we do with Imperial credits? You see any banks in Central?"
+2 - "I'm on an officially sanctioned mission. They won't be pleased if I don't make it back."
