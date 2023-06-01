@@ -55,7 +55,21 @@ public class Interactable extends Collidable {
     // checks if player is within 2 blocks and if mouse is in the NPC's block
     if (sqrt(pow(abs(playerX/gridSize-xCor), 2)+pow(abs(playerY/gridSize-yCor), 2)) <= 1.5
       && x == xCor && y == yCor) {
-      System.out.println(name + " says hi");
+      System.out.println("[You are now speaking with " + name + "]");
+      
+      // sets up dialogue
+      if (name == "Doc") {
+        docBank();
+      } else {
+        // DOES NOT WORK - Null Pointer Exception when called on an NPC other than Doc
+        initializingTestBank();
+      }
+      
+      recentInteractable = this;
+      this.dialogue();
+      
+      //System.out.println("[You are no longer speaking with " + name + "]");
+      
       return true;
     }
     return false;

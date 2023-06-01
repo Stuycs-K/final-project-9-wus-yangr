@@ -31,9 +31,9 @@ void setup() {
   // Sets up Items
   Interactable ab = new Interactable(200, "Afterburner MN 100", 36, 28, color(155, 0, 0));
   interactables.add(ab);
-  Interactable se = new Interactable(200, "Small Shield Extender", 5, 10, color(0, 0, 155));
+  Interactable se = new Interactable(201, "Small Shield Extender", 5, 10, color(0, 0, 155));
   interactables.add(se);
-  Interactable mp = new Interactable(200, "Metal Plates", 21, 17, color(0, 155, 0));
+  Interactable mp = new Interactable(202, "Metal Plates", 21, 17, color(0, 155, 0));
   interactables.add(mp);
 
   //sets all default values inventory to be false;

@@ -3,6 +3,12 @@ class DialogueNode {
   String dialogue;
   ArrayList<DialogueNode> parents;
   ArrayList<DialogueNode> children;
+  
+  DialogueNode(String dialogue) {
+    this.dialogue = dialogue;
+    parents = null;
+    children = new ArrayList<DialogueNode>();
+  }
 
   DialogueNode(String id, String dialogue) {
     this.id = id;
