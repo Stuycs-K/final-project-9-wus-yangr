@@ -30,8 +30,8 @@ void initializingTestBank(){
  DialogueNode oID1 = new DialogueNode("[0][0]", "Choose. Yes or No.");
  DialogueNode oID1a = new DialogueNode("[0][1]", "0 - Yes.");
  DialogueNode oID1b = new DialogueNode("[0][2]", "1 - No.");
- DialogueNode oID1a1 = new DialogueNode("[0][3]", "Yes Die.");
- DialogueNode oID1b1 = new DialogueNode("[0][5]", "No Ok."); 
+ DialogueNode oID1a1 = new DialogueNode("[0][3]", "Die.");
+ DialogueNode oID1b1 = new DialogueNode("[0][5]", "Ok."); 
  DialogueNode oID1a1a = new DialogueNode("na", "0 - Die Option 1"); 
  DialogueNode oID1a1b = new DialogueNode("na", "1 - Die Option 2"); 
  DialogueNode oID1b1a = new DialogueNode("na", "0 - Ok Option 1"); 

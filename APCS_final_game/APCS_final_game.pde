@@ -9,8 +9,8 @@ int[][] map = new int[xWidth/gridSize][yHeight/gridSize];
 ArrayList<Interactable> interactables = new ArrayList<Interactable>();
 static int SPACE = 0;
 static int COLLIDE = 1;
-DialogueNode recent; 
-Interactable recentInteractable; 
+DialogueNode recent;
+Interactable recentInteractable;
 
 void setup() {
   size(800, 800);
@@ -44,11 +44,11 @@ void setup() {
   //dialogue() test
   /*
   initializingTestBank();
-  Interactable dialogueTester = new Interactable(100);
-  //recentInteractables should be set in surroundingInteractables method 
-  recentInteractable = dialogueTester; 
-  dialogueTester.dialogue();
-  */
+   Interactable dialogueTester = new Interactable(100);
+   //recentInteractables should be set in surroundingInteractables method
+   recentInteractable = dialogueTester;
+   dialogueTester.dialogue();
+   */
 }
 
 // Prints a 2d array
@@ -62,7 +62,7 @@ void printAr(int[][] arr) {
 }
 
 /*goes w/ dialogue() method, basically dialogue runs, then the system waits for
-input from player and once input is received, run another round of dialogue*/
+ input from player and once input is received, run another round of dialogue*/
 void keyPressed() {
   if (waitingForInput) {
     if (key == '0') {
@@ -74,6 +74,18 @@ void keyPressed() {
       option = 1;
       waitingForInput = false;
       recentInteractable.dialogue();
+    }
+  }
+  //add cheat code stuff here
+  else {
+    if (key == 'd') {
+      System.out.println(diceRoll());
+    }
+    if (key == 'f') {
+      initializingTestBank();
+      Interactable dialogueTester = new Interactable(100);
+      recentInteractable = dialogueTester;
+      dialogueTester.dialogue();
     }
   }
 }
