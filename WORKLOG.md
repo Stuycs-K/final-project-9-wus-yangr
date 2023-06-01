@@ -35,6 +35,10 @@ Revamped map from 20x20 to 40x40
 
 Wrote dialogue
 
+### date 5/31/2023
+
+Gave Doc in-game introductory dialogue
+
 ## GROUP MEMBER 2 : Randy Yang
 
 ### date 5/22/2023
