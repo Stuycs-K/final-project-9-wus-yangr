@@ -63,7 +63,40 @@ void initializingTestBank(){
  oID1b1b.addChild(oID1b1a2);
 }
 
-void docSetup() {
+void docBank() {
   DialogueNode docFirst = new DialogueNode("docFirst", "A man in a clean, white jacket sits behind the desk.");
+  DialogueNode op1 = new DialogueNode("amog", "0 - Stand silently.");
+  DialogueNode op2 = new DialogueNode("amog", "1 - Clear your throat.");
+  DialogueNode op1r = new DialogueNode("amog", "After a while, he looks up. \"Ah, good to see you awake. That was quite the crash.\"\n\"You can't stay for long. There's a hurricane coming in the next day or two, although the latest reports suggest it'll be sooner rather than later.\"");
+  DialogueNode op2r = new DialogueNode("amog", "He looks up. \"Ah, good to see you awake. That was quite the crash.\"\n\"You can't stay for long. There's a hurricane coming in the next day or two, although the latest reports suggest it'll be sooner rather than later.\"");
+  //DialogueNode hur = new DialogueNode("a", "\"You can't stay for long. There's a hurricane coming in the next day or two, although the latest reports suggest it'll be sooner rather than later.\"");
+  DialogueNode hur1r = new DialogueNode("a", "0 - \"Alright, I'll be on my way, then.\"");
+  DialogueNode hur2r = new DialogueNode("a", "1 - \"How bad is the hurricane?\"");
+  DialogueNode alr = new DialogueNode("a", "\"Not so fast. Your ship, damaged as it is, won't survive the flight.\"");
+  DialogueNode bad = new DialogueNode("a", "\"Bad enough that you'll crash again if you try flying in that mess.\"");
+  DialogueNode thx = new DialogueNode("0 - \"Okay, thanks for the info.\" [Leave.]");
+  DialogueNode where = new DialogueNode("1 - \"Where can I repair my ship?\" [Leave.]");
+  DialogueNode hope = new DialogueNode("\"I hope I won't see you in my clinic again, but if you need any medical assistance, you know where to find me.\"");
+  DialogueNode mech = new DialogueNode("\"Talk to the Mechanic, she's bound to have something for you.\"");
+  
+  dialogueBank[0] = docFirst;
+  docFirst.addChild(op1);  
+  docFirst.addChild(op2);
+  op1.addChild(op1r);
+  op2.addChild(op2r);
+  op1r.addChild(hur1r);
+  op1r.addChild(hur2r);
+  op2r.addChild(hur1r);
+  op2r.addChild(hur2r);
+  hur1r.addChild(alr);
+  hur2r.addChild(bad);
+  alr.addChild(thx);
+  alr.addChild(where);
+  bad.addChild(thx);
+  bad.addChild(where);
+  thx.addChild(hope);
+  where.addChild(mech);
+  //hur.addChild(hur1r);
+  //hur.addChild(hur2r);
   // read from file into the dialoguenode data structure
 }
