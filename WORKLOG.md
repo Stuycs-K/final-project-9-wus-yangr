@@ -76,3 +76,4 @@ Restructuring of dialogue method in progress
 ### date 5/31/2023
 
 Completed restructed dialogue method (finally)
+Added some cheat keys for demo
