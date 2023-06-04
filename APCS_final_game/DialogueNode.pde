@@ -1,5 +1,6 @@
 class DialogueNode {
   String id;
+  // id of 0 = Interactable speaking, id of 1 = Player speaking
   String dialogue;
   ArrayList<DialogueNode> parents;
   ArrayList<DialogueNode> children;

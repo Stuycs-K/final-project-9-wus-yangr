@@ -107,6 +107,8 @@ void mechBank() {
   DialogueNode spec = new DialogueNode("1 - Think about the parts you need.");
   DialogueNode wait = new DialogueNode("She continues fiddling with the engine.");
   DialogueNode aft = new DialogueNode("0 - \"Do you have an Afterburner?\"");
+  DialogueNode aftop = new DialogueNode("\"Yeah, I've got some of those. 100MN, 1KMN, but I'm not sure what size ship you're flying.\"");
+  DialogueNode frig = new DialogueNode("0 - \"A frigate.\"");
   DialogueNode naft = new DialogueNode("1 - No, something else.");
   DialogueNode wait2 = new DialogueNode("Something sparks in the engine, and she swears under her breath.");
   DialogueNode shi = new DialogueNode("0 - \"Do you have a Shield Extender\"");
@@ -119,7 +121,7 @@ void mechBank() {
   DialogueNode stay = new DialogueNode("1 - Go back. Go over the parts you need again.");
   DialogueNode bye = new DialogueNode("\"Have a good one, offworlder!\"");
   
-  dialogueBank[0] = mechFirst;
+  dialogueBank[1] = mechFirst;
   mechFirst.addChild(gen);
   mechFirst.addChild(spec);
   spec.addChild(wait);

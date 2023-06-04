@@ -88,6 +88,8 @@ public class Interactable extends Collidable {
       //if player turn, wait for input
       if (playerTurn == 1) {
         //advance to option 1
+        recent = recent.getChild(option).getChild(0);
+        /**
         if (option == 0) {
           //advances twice due to our double node structure where theres the npc then player dialogue
           recent = recent.getChild(0).getChild(0);
@@ -95,7 +97,7 @@ public class Interactable extends Collidable {
         //advance to option 2
         if (option == 1) {
           recent = recent.getChild(1).getChild(0);
-        }
+        }**/
         playerTurn++;
         playerTurn %= 2;
       }
