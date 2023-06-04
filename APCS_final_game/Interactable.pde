@@ -105,8 +105,9 @@ public class Interactable extends Collidable {
         //if not player turn, print the current, set it to player turn & set waitingForInput to T
         System.out.println(recent.text());
         if(recent.hasChild()){
-        System.out.println(recent.getChild(0).text());
-        System.out.println(recent.getChild(1).text());
+          for (DialogueNode child : recent.getChildren()) {
+            System.out.println(child.text());
+          }
         playerTurn++;
         playerTurn %= 2;
         waitingForInput = true;

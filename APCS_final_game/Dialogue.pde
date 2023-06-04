@@ -64,20 +64,20 @@ void initializingTestBank(){
 }
 
 void docBank() {
-  DialogueNode docFirst = new DialogueNode("docFirst", "A man in a clean, white jacket sits behind the desk.");
-  DialogueNode op1 = new DialogueNode("amog", "0 - Stand silently.");
-  DialogueNode op2 = new DialogueNode("amog", "1 - Clear your throat.");
-  DialogueNode op1r = new DialogueNode("amog", "After a while, he looks up. \"Ah, good to see you awake. That was quite the crash.\"\n\"You can't stay for long. There's a hurricane coming in the next day or two, although the latest reports suggest it'll be sooner rather than later.\"");
-  DialogueNode op2r = new DialogueNode("amog", "He looks up. \"Ah, good to see you awake. That was quite the crash.\"\n\"You can't stay for long. There's a hurricane coming in the next day or two, although the latest reports suggest it'll be sooner rather than later.\"");
+  DialogueNode docFirst = new DialogueNode(true, "A man in a clean, white jacket sits behind the desk.");
+  DialogueNode op1 = new DialogueNode(false, "0 - Stand silently.");
+  DialogueNode op2 = new DialogueNode(false, "1 - Clear your throat.");
+  DialogueNode op1r = new DialogueNode(true, "After a while, he looks up. \"Ah, good to see you awake. That was quite the crash.\"\n\"You can't stay for long. There's a hurricane coming in the next day or two, although the latest reports suggest it'll be sooner rather than later.\"");
+  DialogueNode op2r = new DialogueNode(true, "He looks up. \"Ah, good to see you awake. That was quite the crash.\"\n\"You can't stay for long. There's a hurricane coming in the next day or two, although the latest reports suggest it'll be sooner rather than later.\"");
   //DialogueNode hur = new DialogueNode("a", "\"You can't stay for long. There's a hurricane coming in the next day or two, although the latest reports suggest it'll be sooner rather than later.\"");
-  DialogueNode hur1r = new DialogueNode("a", "0 - \"Alright, I'll be on my way, then.\"");
-  DialogueNode hur2r = new DialogueNode("a", "1 - \"How bad is the hurricane?\"");
-  DialogueNode alr = new DialogueNode("a", "\"Not so fast. Your ship, damaged as it is, won't survive the flight.\"");
-  DialogueNode bad = new DialogueNode("a", "\"Bad enough that you'll crash again if you try flying in that mess.\"");
-  DialogueNode thx = new DialogueNode("0 - \"Okay, thanks for the info.\" [Leave.]");
-  DialogueNode where = new DialogueNode("1 - \"Where can I repair my ship?\" [Leave.]");
-  DialogueNode hope = new DialogueNode("\"I hope I won't see you in my clinic again, but if you need any medical assistance, you know where to find me.\"");
-  DialogueNode mech = new DialogueNode("\"Talk to the Mechanic, she's bound to have something for you.\"");
+  DialogueNode hur1r = new DialogueNode(false, "0 - \"Alright, I'll be on my way, then.\"");
+  DialogueNode hur2r = new DialogueNode(false, "1 - \"How bad is the hurricane?\"");
+  DialogueNode alr = new DialogueNode(true, "\"Not so fast. Your ship, damaged as it is, won't survive the flight.\"");
+  DialogueNode bad = new DialogueNode(true, "\"Bad enough that you'll crash again if you try flying in that mess.\"");
+  DialogueNode thx = new DialogueNode(false, "0 - \"Okay, thanks for the info.\" [Leave.]");
+  DialogueNode where = new DialogueNode(false, "1 - \"Where can I repair my ship?\" [Leave.]");
+  DialogueNode hope = new DialogueNode(true, "\"I hope I won't see you in my clinic again, but if you need any medical assistance, you know where to find me.\"");
+  DialogueNode mech = new DialogueNode(true, "\"Talk to the Mechanic, she's bound to have something for you.\"");
   
   dialogueBank[0] = docFirst;
   docFirst.addChild(op1);  
@@ -115,6 +115,7 @@ void mechBank() {
   DialogueNode nshi = new DialogueNode("1 - Not that either. Something else.");
   DialogueNode wait3 = new DialogueNode("She moves to the other side of the engine, continuing her work.");
   DialogueNode mpl = new DialogueNode("0 - \"Do you have Metal Plates?\"");
+  DialogueNode mplno = new DialogueNode("\"Nope. Don't have those. Those got bought out during the Collapse. But...\" She scratches her chin.\n\"The Graveyard's bound to have some. All sorts of old tech gets dumped there. Ask Big Johnny for the keys past the gate.\"");
   DialogueNode nmpl = new DialogueNode("1 - Not that.");
   DialogueNode bruh = new DialogueNode("That's all the parts you need. You haven't forgotten anything. In fact, you've been standing here, staring off into space, for the past minute or so.");
   DialogueNode leave = new DialogueNode("0 - \"I'll come back later.\" [Leave.]");
@@ -127,12 +128,15 @@ void mechBank() {
   spec.addChild(wait);
   wait.addChild(aft);
   wait.addChild(naft);
+  wait.addChild(shi);
+  wait.addChild(mpl);
   naft.addChild(wait2);
   wait2.addChild(shi);
   wait2.addChild(nshi);
   nshi.addChild(wait3);
   wait3.addChild(mpl);
   wait3.addChild(nmpl);
+  mpl.addChild(mplno);
   nmpl.addChild(bruh);
   bruh.addChild(leave);
   bruh.addChild(stay);
