@@ -23,7 +23,7 @@ void setup() {
   // Sets up NPCs
   Interactable doc = new Interactable(100, "Doc", 4, 33, color(255, 0, 0));
   interactables.add(doc);
-  Interactable mech = new Interactable(101, "The Mechanic", 1, 12, color(0, 0, 255));
+  Interactable mech = new Interactable(100, "The Mechanic", 1, 12, color(0, 0, 255));
   interactables.add(mech);
   Interactable big = new Interactable(102, "Big Johnny", 18, 18, color(0, 255, 0));
   interactables.add(big);

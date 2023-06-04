@@ -39,6 +39,10 @@ Wrote dialogue
 
 Gave Doc in-game introductory dialogue
 
+### date 6/3/2023
+
+Started writing The Mechanic's dialogue
+
 ## GROUP MEMBER 2 : Randy Yang
 
 ### date 5/22/2023

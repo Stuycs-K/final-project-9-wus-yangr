@@ -100,3 +100,40 @@ void docBank() {
   //hur.addChild(hur2r);
   // read from file into the dialoguenode data structure
 }
+
+void mechBank() {
+  DialogueNode mechFirst = new DialogueNode("a", "A woman in overalls fixes an engine in the center of the store. As you approach, she takes off her soot-stained goggles.\n\"Hey there, offworlder. Doc told me you were stopping by.\"");
+  DialogueNode gen = new DialogueNode("0 - \"What's for sale?\"");
+  DialogueNode spec = new DialogueNode("1 - Think about the parts you need.");
+  DialogueNode wait = new DialogueNode("She continues fiddling with the engine.");
+  DialogueNode aft = new DialogueNode("0 - \"Do you have an Afterburner?\"");
+  DialogueNode naft = new DialogueNode("1 - No, something else.");
+  DialogueNode wait2 = new DialogueNode("Something sparks in the engine, and she swears under her breath.");
+  DialogueNode shi = new DialogueNode("0 - \"Do you have a Shield Extender\"");
+  DialogueNode nshi = new DialogueNode("1 - Not that either. Something else.");
+  DialogueNode wait3 = new DialogueNode("She moves to the other side of the engine, continuing her work.");
+  DialogueNode mpl = new DialogueNode("0 - \"Do you have Metal Plates?\"");
+  DialogueNode nmpl = new DialogueNode("1 - Not that.");
+  DialogueNode bruh = new DialogueNode("That's all the parts you need. You haven't forgotten anything. In fact, you've been standing here, staring off into space, for the past minute or so.");
+  DialogueNode leave = new DialogueNode("0 - \"I'll come back later.\" [Leave.]");
+  DialogueNode stay = new DialogueNode("1 - Go back. Go over the parts you need again.");
+  DialogueNode bye = new DialogueNode("\"Have a good one, offworlder!\"");
+  
+  dialogueBank[0] = mechFirst;
+  mechFirst.addChild(gen);
+  mechFirst.addChild(spec);
+  spec.addChild(wait);
+  wait.addChild(aft);
+  wait.addChild(naft);
+  naft.addChild(wait2);
+  wait2.addChild(shi);
+  wait2.addChild(nshi);
+  nshi.addChild(wait3);
+  wait3.addChild(mpl);
+  wait3.addChild(nmpl);
+  nmpl.addChild(bruh);
+  bruh.addChild(leave);
+  bruh.addChild(stay);
+  leave.addChild(bye);
+  stay.addChild(wait);
+}
