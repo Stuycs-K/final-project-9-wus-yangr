@@ -47,6 +47,10 @@ Started writing The Mechanic's dialogue
 
 Dialogue can now have more than 2 children
 
+### date 6/6/2023
+
+Added more dialogue
+
 ## GROUP MEMBER 2 : Randy Yang
 
 ### date 5/22/2023
