@@ -89,3 +89,8 @@ Restructuring of dialogue method in progress
 
 Completed restructed dialogue method (finally)
 Added some cheat keys for demo
+
+### date 6/04/2023
+
+Removed some code for demo & testing
+Slight changes to dialogue() to accommodate for more than 2 children
