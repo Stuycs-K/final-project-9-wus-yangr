@@ -2,34 +2,34 @@
 DialogueNode[] dialogueBank = new DialogueNode[10];
 
 //for testing dialogue() but format can be used for the actual initialization of the bank
-void initializingTestBank(){
- DialogueNode oID1 = new DialogueNode("[0][0]", "Choose. Yes or No.");
- DialogueNode oID1a = new DialogueNode("[0][1]", "0 - Yes.");
- DialogueNode oID1b = new DialogueNode("[0][2]", "1 - No.");
- DialogueNode oID1a1 = new DialogueNode("[0][3]", "Die.");
- DialogueNode oID1b1 = new DialogueNode("[0][5]", "Ok."); 
- DialogueNode oID1a1a = new DialogueNode("na", "0 - Die Option 1"); 
- DialogueNode oID1a1b = new DialogueNode("na", "1 - Die Option 2"); 
- DialogueNode oID1b1a = new DialogueNode("na", "0 - Ok Option 1"); 
- DialogueNode oID1b1b = new DialogueNode("na", "1 - Ok Option 2"); 
- DialogueNode oID1a1a1 = new DialogueNode("na", "Die Option 1 End"); 
- DialogueNode oID1a1a2 = new DialogueNode("na", "Die Option 2 End"); 
- DialogueNode oID1b1a1 = new DialogueNode("na", "Ok Option 1 End"); 
- DialogueNode oID1b1a2 = new DialogueNode("na", "Ok Option 2 End"); 
+void initializingTestBank() {
+  DialogueNode oID1 = new DialogueNode("[0][0]", "Choose. Yes or No.");
+  DialogueNode oID1a = new DialogueNode("[0][1]", "0 - Yes.");
+  DialogueNode oID1b = new DialogueNode("[0][2]", "1 - No.");
+  DialogueNode oID1a1 = new DialogueNode("[0][3]", "Die.");
+  DialogueNode oID1b1 = new DialogueNode("[0][5]", "Ok.");
+  DialogueNode oID1a1a = new DialogueNode("na", "0 - Die Option 1");
+  DialogueNode oID1a1b = new DialogueNode("na", "1 - Die Option 2");
+  DialogueNode oID1b1a = new DialogueNode("na", "0 - Ok Option 1");
+  DialogueNode oID1b1b = new DialogueNode("na", "1 - Ok Option 2");
+  DialogueNode oID1a1a1 = new DialogueNode("na", "Die Option 1 End");
+  DialogueNode oID1a1a2 = new DialogueNode("na", "Die Option 2 End");
+  DialogueNode oID1b1a1 = new DialogueNode("na", "Ok Option 1 End");
+  DialogueNode oID1b1a2 = new DialogueNode("na", "Ok Option 2 End");
 
- dialogueBank[0] = oID1;
- oID1.addChild(oID1a);
- oID1.addChild(oID1b);
- oID1a.addChild(oID1a1);
- oID1b.addChild(oID1b1);
- oID1a1.addChild(oID1a1a);
- oID1a1.addChild(oID1a1b);
- oID1a1a.addChild(oID1a1a1);
- oID1a1b.addChild(oID1a1a2);
- oID1b1.addChild(oID1b1a);
- oID1b1.addChild(oID1b1b);
- oID1b1a.addChild(oID1b1a1);
- oID1b1b.addChild(oID1b1a2);
+  dialogueBank[0] = oID1;
+  oID1.addChild(oID1a);
+  oID1.addChild(oID1b);
+  oID1a.addChild(oID1a1);
+  oID1b.addChild(oID1b1);
+  oID1a1.addChild(oID1a1a);
+  oID1a1.addChild(oID1a1b);
+  oID1a1a.addChild(oID1a1a1);
+  oID1a1b.addChild(oID1a1a2);
+  oID1b1.addChild(oID1b1a);
+  oID1b1.addChild(oID1b1b);
+  oID1b1a.addChild(oID1b1a1);
+  oID1b1b.addChild(oID1b1a2);
 }
 
 void docBank() {
@@ -47,9 +47,9 @@ void docBank() {
   DialogueNode where = new DialogueNode("1 - \"Where can I repair my ship?\" [Leave.]");
   DialogueNode hope = new DialogueNode("\"I hope I won't see you in my clinic again, but if you need any medical assistance, you know where to find me.\"");
   DialogueNode mech = new DialogueNode("\"Talk to the Mechanic, she's bound to have something for you.\"");
-  
+
   dialogueBank[0] = docFirst;
-  docFirst.addChild(op1);  
+  docFirst.addChild(op1);
   docFirst.addChild(op2);
   op1.addChild(op1r);
   op2.addChild(op2r);
@@ -89,7 +89,7 @@ void mechBank() {
   DialogueNode leave = new DialogueNode("0 - \"I'll come back later.\" [Leave.]");
   DialogueNode stay = new DialogueNode("1 - Go back. Go over the parts you need again.");
   DialogueNode bye = new DialogueNode("\"Have a good one, offworlder!\"");
-  
+
   dialogueBank[1] = mechFirst;
   mechFirst.addChild(gen);
   mechFirst.addChild(spec);
@@ -107,4 +107,40 @@ void mechBank() {
   bruh.addChild(stay);
   leave.addChild(bye);
   stay.addChild(wait);
+}
+
+void shieldBank() {
+  DialogueNode oID1 = new DialogueNode("[0][0]", "Choose. Yes or No.");
+  DialogueNode oID1a = new DialogueNode("[0][1]", "0 - Yes.");
+  DialogueNode oID1b = new DialogueNode("[0][2]", "1 - No.");
+  DialogueNode oID1a1 = new DialogueNode("[0][3]", "Die.");
+  DialogueNode oID1b1 = new DialogueNode("[0][5]", "Ok.");
+  DialogueNode oID1a1a = new DialogueNode("na", "0 - Die Option 1");
+  DialogueNode oID1a1b = new DialogueNode("na", "1 - Die Option 2");
+  DialogueNode oID1b1a = new DialogueNode("na", "0 - Ok Option 1");
+  DialogueNode oID1b1b = new DialogueNode("na", "1 - Ok Option 2");
+  DialogueNode oID1a1a1 = new DialogueNode("na", "Die Option 1 End");
+  DialogueNode oID1a1a2 = new DialogueNode("na", "Die Option 2 End");
+  DialogueNode oID1b1a1 = new DialogueNode("na", "Ok Option 1 End");
+  DialogueNode oID1b1a2 = new DialogueNode("na", "Ok Option 2 End");
+
+  dialogueBank[0] = oID1;
+  oID1.addChild(oID1a);
+  oID1.addChild(oID1b);
+  oID1a.addChild(oID1a1);
+  oID1b.addChild(oID1b1);
+  oID1a1.addChild(oID1a1a);
+  oID1a1.addChild(oID1a1b);
+  oID1a1a.addChild(oID1a1a1);
+  oID1a1b.addChild(oID1a1a2);
+  oID1b1.addChild(oID1b1a);
+  oID1b1.addChild(oID1b1b);
+  oID1b1a.addChild(oID1b1a1);
+  oID1b1b.addChild(oID1b1a2);
+}
+
+void plateBank() {
+}
+
+void burnerBank() {
 }
