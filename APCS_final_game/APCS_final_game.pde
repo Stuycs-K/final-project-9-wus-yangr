@@ -18,8 +18,6 @@ void setup() {
   createMap(mapImg);
   //printAr(map);
 
-  // testing(); <--- this one is for dialogue
-
   // Sets up NPCs
   Interactable doc = new Interactable(100, "Doc", 4, 33, color(255, 0, 0));
   interactables.add(doc);
@@ -40,15 +38,6 @@ void setup() {
   for (int i = 0; i < inventory.length; i++) {
     inventory[i] = false;
   }
-
-  //dialogue() test
-  /*
-  initializingTestBank();
-   Interactable dialogueTester = new Interactable(100);
-   //recentInteractables should be set in surroundingInteractables method
-   recentInteractable = dialogueTester;
-   dialogueTester.dialogue();
-   */
 }
 
 // Prints a 2d array
@@ -79,18 +68,6 @@ void keyPressed() {
       waitingForInput = false;
       recentInteractable.dialogue();
     }**/
-  }
-  //add cheat code stuff here
-  else {
-    if (key == 'd') {
-      System.out.println(diceRoll());
-    }
-    if (key == 'f') {
-      initializingTestBank();
-      Interactable dialogueTester = new Interactable(100);
-      recentInteractable = dialogueTester;
-      dialogueTester.dialogue();
-    }
   }
 }
 

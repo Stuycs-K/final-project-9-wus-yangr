@@ -43,6 +43,14 @@ Gave Doc in-game introductory dialogue
 
 Started writing The Mechanic's dialogue
 
+### date 6/4/2023
+
+Dialogue can now have more than 2 children
+
+### date 6/6/2023
+
+Added more dialogue
+
 ## GROUP MEMBER 2 : Randy Yang
 
 ### date 5/22/2023
@@ -81,3 +89,8 @@ Restructuring of dialogue method in progress
 
 Completed restructed dialogue method (finally)
 Added some cheat keys for demo
+
+### date 6/04/2023
+
+Removed some code for demo & testing
+Slight changes to dialogue() to accommodate for more than 2 children
