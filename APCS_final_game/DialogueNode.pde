@@ -1,11 +1,19 @@
 class DialogueNode {
   String id;
-  // id of 0 = Interactable speaking, id of 1 = Player speaking
+  // if interactable is true, the dialogue is the interactable's and player shouldn't be allowed to input commands
+  boolean interactable;
   String dialogue;
   ArrayList<DialogueNode> parents;
   ArrayList<DialogueNode> children;
   
   DialogueNode(String dialogue) {
+    this.dialogue = dialogue;
+    parents = null;
+    children = new ArrayList<DialogueNode>();
+  }
+  
+  DialogueNode(boolean interactable, String dialogue) {
+    this.interactable = interactable;
     this.dialogue = dialogue;
     parents = null;
     children = new ArrayList<DialogueNode>();
@@ -16,6 +24,10 @@ class DialogueNode {
     this.dialogue = dialogue;
     parents = null;
     children = new ArrayList<DialogueNode>();
+  }
+  
+  boolean isInt() {
+    return interactable;
   }
 
   void addParent(DialogueNode parent) {
@@ -33,7 +45,11 @@ class DialogueNode {
   DialogueNode getChild(int childIndex) {
     return children.get(childIndex);
   }
-
+  
+  ArrayList<DialogueNode> getChildren() {
+    return children;
+  }
+  
   boolean hasChild() {
     return(children.size() > 0);
   }
