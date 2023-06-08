@@ -104,6 +104,8 @@ void docBank() {
 void mechBank() {
   DialogueNode mechFirst = new DialogueNode("a", "A woman in overalls fixes an engine in the center of the store. As you approach, she takes off her soot-stained goggles.\n\"Hey there, offworlder. Doc told me you were stopping by.\"");
   DialogueNode gen = new DialogueNode("0 - \"What's for sale?\"");
+  DialogueNode sale = new DialogueNode("She waves a hand. \"All sorts of things. Sub parts, mostly. Used to be ships, but nobody's got any flightworthy ships these days, so I'm stuck with subs.\"\n\"Still got some ship parts for you, though. Shield Extenders, Afterburners, ammo, if you're so inclined. Some other turret modifications. The works.\"");
+  DialogueNode saleinfo = new DialogueNode("0 - You need a Shield Extender and an Afterburner.");
   DialogueNode spec = new DialogueNode("1 - Think about the parts you need.");
   DialogueNode wait = new DialogueNode("She continues fiddling with the engine.");
   DialogueNode aft = new DialogueNode("0 - \"Do you have an Afterburner?\"");
@@ -119,6 +121,7 @@ void mechBank() {
   DialogueNode elaborate = new DialogueNode("1 - \"What kind of favor?\"");
   DialogueNode please = new DialogueNode("2 - \"C'mon, I really need to get offworld.\"");
   DialogueNode nodeal = new DialogueNode("3 - \"No deal.\"");
+  DialogueNode dealyeah = new DialogueNode("\"Alright, good to hear. Here's my contact info. I'll give you a call, yeah?\"");
   DialogueNode shiask = new DialogueNode("1 - \"Can I have it?\"");
   DialogueNode charity = new DialogueNode("She laughs. \"This ain't a charity. Try again.\"");
   DialogueNode mpl = new DialogueNode("2 - \"Do you have Metal Plates?\"");
@@ -136,6 +139,9 @@ void mechBank() {
   
   dialogueBank[1] = mechFirst;
   mechFirst.addChild(gen);
+  gen.addChild(sale);
+  sale.addChild(saleinfo);
+  saleinfo.addChild(wait);
   mechFirst.addChild(spec);
   spec.addChild(wait);
   wait.addChild(aft);
@@ -148,13 +154,16 @@ void mechBank() {
   frig.addChild(frwhere);
   frwhere.addChild(ret);
   ret.addChild(wait);
-  aftop.addChild(whty);
+  //aftop.addChild(whty);
   shi.addChild(shiy);
   shiy.addChild(shipay);
   shiy.addChild(shiask);
   shipay.addChild(payment);
   shiask.addChild(charity);
   charity.addChild(shipay);
+  payment.addChild(deal);
+  deal.addChild(dealyeah);
+  dealyeah.addChild(ret);
   mpl.addChild(mplno);
   mplno.addChild(ret);
   naft.addChild(bruh);
