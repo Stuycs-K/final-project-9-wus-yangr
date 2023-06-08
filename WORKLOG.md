@@ -51,6 +51,10 @@ Dialogue can now have more than 2 children
 
 Added more dialogue
 
+### date 6/7/2023
+
+Finished basic dialogue for all 3 NPCS
+
 ## GROUP MEMBER 2 : Randy Yang
 
 ### date 5/22/2023
