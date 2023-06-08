@@ -171,3 +171,35 @@ void mechBank() {
   leave.addChild(bye);
   stay.addChild(wait);
 }
+
+void johnBank() {
+  DialogueNode johnFirst = new DialogueNode("A man stares out of the window with a pair of binoculars.\n\"Pilot.\"");
+  DialogueNode mechrec = new DialogueNode("0 - \"The Mechanic told me you could give me a gate key.\"");
+  DialogueNode mechrecr = new DialogueNode("\"I can. Why should I?\"");
+  DialogueNode givekey = new DialogueNode("0 - he gives you the key :) yay [Leave]"); // placeholder
+  DialogueNode mpwhere = new DialogueNode("1 - \"Where can I get Metal Plates?\"");
+  DialogueNode mppoint = new DialogueNode("He points at a stack of metal on the balcony. It's perched precariously near the edge, looking like a stiff breeze could send it tumbling into the abyss.\n\"Feel free to grab 'em.\"");
+  DialogueNode grab = new DialogueNode("0 - Go onto the balcony and grab the Metal Plates.");
+  DialogueNode johnimp = new DialogueNode("The winds tear at you as you step onto the balcony. With one arm wrapped tight around the railing, you grab the Metal Plates.\nBig Johnny, watching from the window, nods in approval.");
+  DialogueNode gobackin = new DialogueNode("0 - Go back inside.");
+  DialogueNode dontgrab = new DialogueNode("1 - \"That doesn't look safe.\"");
+  DialogueNode offerkey = new DialogueNode("\"Well, didn't think you'd have the guts to do it. Ah well. Nice job. I suppose you want a key to the Graveyard?\"");
+  DialogueNode sucks = new DialogueNode("\"Sucks to suck, buttercup. I'm not going out there.\"");
+  DialogueNode johnbye = new DialogueNode("He doesn't offer a farewell, continuing to squint at the streets below.");
+  
+  dialogueBank[2] = johnFirst;
+  johnFirst.addChild(mechrec);
+  mechrec.addChild(mechrecr);
+  mechrecr.addChild(givekey);
+  givekey.addChild(johnbye);
+  johnFirst.addChild(mpwhere);
+  mpwhere.addChild(mppoint);
+  mppoint.addChild(grab);
+  mppoint.addChild(dontgrab);
+  grab.addChild(johnimp);
+  johnimp.addChild(gobackin);
+  gobackin.addChild(offerkey);
+  offerkey.addChild(givekey);
+  dontgrab.addChild(sucks);
+  sucks.addChild(grab);
+}

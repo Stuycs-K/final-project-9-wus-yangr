@@ -62,6 +62,8 @@ public class Interactable extends Collidable {
         docBank();
       } else if (name == "The Mechanic") {
         mechBank();
+      } else if (name == "Big Johnny") {
+        johnBank();
       } else {
         // DOES NOT WORK - Null Pointer Exception when called on an NPC other than Doc
         initializingTestBank();
