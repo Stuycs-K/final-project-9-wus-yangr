@@ -54,6 +54,10 @@ void printAr(int[][] arr) {
  input from player and once input is received, run another round of dialogue*/
 void keyPressed() {
   if (waitingForInput) {
+    option = ((int) key)-48; //ASCII for numbered keys starts at '0' = 48
+    waitingForInput = false;
+    recentInteractable.dialogue();
+    /**
     if (key == '0') {
       option = 0;
       waitingForInput = false;
@@ -63,7 +67,7 @@ void keyPressed() {
       option = 1;
       waitingForInput = false;
       recentInteractable.dialogue();
-    }
+    }**/
   }
 }
 
