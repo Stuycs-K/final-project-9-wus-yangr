@@ -106,4 +106,8 @@ Began adding dialogue for items
 ### date 6/08/2023
 
 Added rudimentary dialogue for all 3 items
-Updated dialogue() to work w/ id's greater >= 200 (items) 
+Updated dialogue() to work w/ id's greater >= 200 (items)
+
+### date 6/09/2023
+
+Enabled dialogue to add the three items to inventory 
