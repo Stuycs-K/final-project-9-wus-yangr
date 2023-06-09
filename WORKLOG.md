@@ -102,3 +102,8 @@ Slight changes to dialogue() to accommodate for more than 2 children
 ### date 6/07/2023
 
 Began adding dialogue for items
+
+### date 6/08/2023
+
+Added rudimentary dialogue for all 3 items
+Updated dialogue() to work w/ id's greater >= 200 (items) 
