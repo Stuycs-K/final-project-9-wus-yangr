@@ -81,7 +81,12 @@ public class Interactable extends Collidable {
   public void dialogue() {
     //if its the firstInteraction w/ the npc, you initialize the dialogueNode recent as the corresponding starting dialogueNode
     if (firstInteraction) {
-      recent = dialogueBank[getID() - 100];
+      if (getID() >= 200) {
+        recent = dialogueBank[getID() - 200];
+      } 
+      else {
+        recent = dialogueBank[getID() - 100];
+      }
     }
     //gets corresponding dialogueBank index based on objectID since interactables start from 100
     if (recent.hasChild()) {
@@ -95,7 +100,7 @@ public class Interactable extends Collidable {
         //if not player turn, print the current, set it to player turn & set waitingForInput to T
         System.out.println(recent.text());
         if (recent.hasChild()) {
-          for(int i = 0; i < recent.children.size(); i++){
+          for (int i = 0; i < recent.children.size(); i++) {
             System.out.println(recent.getChild(i).text());
           }
           playerTurn++;
