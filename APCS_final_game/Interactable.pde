@@ -106,6 +106,11 @@ public class Interactable extends Collidable {
       if (playerTurn == 0) {
         //if not player turn, print the current, set it to player turn & set waitingForInput to T
         System.out.println(recent.text());
+        if(getID() >= 200){
+          if(recent.getString().equals("Inventory")){
+            inventory[getID() - 200] = true; 
+          }
+        }
         if (recent.hasChild()) {
           for (DialogueNode child : recent.getChildren()) {
             System.out.println(child.text());

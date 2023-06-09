@@ -181,7 +181,7 @@ void burnerBank() {
   DialogueNode oID1 = new DialogueNode("Dial", "You found the [Afterburner MN 100]! Would you like to pick up this item?");
   DialogueNode oID1a = new DialogueNode("Choice", "0 - Yes.");
   DialogueNode oID1b = new DialogueNode("Choice", "1 - No.");
-  DialogueNode oID1a1 = new DialogueNode("Dial", "Congratulations! [Afterburner MN 100] has been added to the inventory!");
+  DialogueNode oID1a1 = new DialogueNode("Inventory", "Congratulations! [Afterburner MN 100] has been added to the inventory!");
   DialogueNode oID1b1 = new DialogueNode("Dial", "You go along on your way, leaving the [Afterburner MN 100] to collect dust for eternity.");
 
   dialogueBank[0] = oID1;
@@ -195,7 +195,7 @@ void shieldBank() {
   DialogueNode oID1 = new DialogueNode("Dial", "You found the [Small Shield Extender]! Would you like to pick up this item?");
   DialogueNode oID1a = new DialogueNode("Choice", "0 - Yes.");
   DialogueNode oID1b = new DialogueNode("Choice", "1 - No.");
-  DialogueNode oID1a1 = new DialogueNode("Dial", "Congratulations! [Small Shield Extender] has been added to the inventory!");
+  DialogueNode oID1a1 = new DialogueNode("Inventory", "Congratulations! [Small Shield Extender] has been added to the inventory!");
   DialogueNode oID1b1 = new DialogueNode("Dial", "You go along on your way, leaving the [Small Shield Extender] to collect dust for eternity.");
 
   dialogueBank[1] = oID1;
@@ -209,7 +209,7 @@ void plateBank() {
   DialogueNode oID1 = new DialogueNode("Dial", "You found the [Metal Plates]! Would you like to pick up this item?");
   DialogueNode oID1a = new DialogueNode("Choice", "0 - Yes.");
   DialogueNode oID1b = new DialogueNode("Choice", "1 - No.");
-  DialogueNode oID1a1 = new DialogueNode("Dial", "Congratulations! [Metal Plates] has been added to the inventory!");
+  DialogueNode oID1a1 = new DialogueNode("Inventory", "Congratulations! [Metal Plates] has been added to the inventory!");
   DialogueNode oID1b1 = new DialogueNode("Dial", "You go along on your way, leaving the [Metal Plates] to collect dust for eternity.");
 
   dialogueBank[2] = oID1;
