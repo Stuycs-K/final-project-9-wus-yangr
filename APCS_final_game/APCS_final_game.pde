@@ -69,6 +69,11 @@ void keyPressed() {
       recentInteractable.dialogue();
     }**/
   }
+  if(key == 't'){
+    for(int i = 0; i < inventory.length; i++){
+      System.out.println("index " + i + " " + inventory[i]);
+    }
+  }
 }
 
 // Creates a map of 1s and 0s from a black and white image

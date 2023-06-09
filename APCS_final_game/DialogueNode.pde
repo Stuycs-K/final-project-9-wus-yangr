@@ -53,4 +53,8 @@ class DialogueNode {
   boolean hasChild() {
     return(children.size() > 0);
   }
+  
+  String getString(){
+    return id;
+  }
 }
