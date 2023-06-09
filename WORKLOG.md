@@ -98,3 +98,7 @@ Added some cheat keys for demo
 
 Removed some code for demo & testing
 Slight changes to dialogue() to accommodate for more than 2 children
+
+### date 6/07/2023
+
+Began adding dialogue for items

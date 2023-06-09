@@ -2,34 +2,34 @@
 DialogueNode[] dialogueBank = new DialogueNode[10];
 
 //for testing dialogue() but format can be used for the actual initialization of the bank
-void initializingTestBank(){
- DialogueNode oID1 = new DialogueNode("[0][0]", "Choose. Yes or No.");
- DialogueNode oID1a = new DialogueNode("[0][1]", "0 - Yes.");
- DialogueNode oID1b = new DialogueNode("[0][2]", "1 - No.");
- DialogueNode oID1a1 = new DialogueNode("[0][3]", "Die.");
- DialogueNode oID1b1 = new DialogueNode("[0][5]", "Ok."); 
- DialogueNode oID1a1a = new DialogueNode("na", "0 - Die Option 1"); 
- DialogueNode oID1a1b = new DialogueNode("na", "1 - Die Option 2"); 
- DialogueNode oID1b1a = new DialogueNode("na", "0 - Ok Option 1"); 
- DialogueNode oID1b1b = new DialogueNode("na", "1 - Ok Option 2"); 
- DialogueNode oID1a1a1 = new DialogueNode("na", "Die Option 1 End"); 
- DialogueNode oID1a1a2 = new DialogueNode("na", "Die Option 2 End"); 
- DialogueNode oID1b1a1 = new DialogueNode("na", "Ok Option 1 End"); 
- DialogueNode oID1b1a2 = new DialogueNode("na", "Ok Option 2 End"); 
+void initializingTestBank() {
+  DialogueNode oID1 = new DialogueNode("[0][0]", "Choose. Yes or No.");
+  DialogueNode oID1a = new DialogueNode("[0][1]", "0 - Yes.");
+  DialogueNode oID1b = new DialogueNode("[0][2]", "1 - No.");
+  DialogueNode oID1a1 = new DialogueNode("[0][3]", "Die.");
+  DialogueNode oID1b1 = new DialogueNode("[0][5]", "Ok.");
+  DialogueNode oID1a1a = new DialogueNode("na", "0 - Die Option 1");
+  DialogueNode oID1a1b = new DialogueNode("na", "1 - Die Option 2");
+  DialogueNode oID1b1a = new DialogueNode("na", "0 - Ok Option 1");
+  DialogueNode oID1b1b = new DialogueNode("na", "1 - Ok Option 2");
+  DialogueNode oID1a1a1 = new DialogueNode("na", "Die Option 1 End");
+  DialogueNode oID1a1a2 = new DialogueNode("na", "Die Option 2 End");
+  DialogueNode oID1b1a1 = new DialogueNode("na", "Ok Option 1 End");
+  DialogueNode oID1b1a2 = new DialogueNode("na", "Ok Option 2 End");
 
- dialogueBank[0] = oID1;
- oID1.addChild(oID1a);
- oID1.addChild(oID1b);
- oID1a.addChild(oID1a1);
- oID1b.addChild(oID1b1);
- oID1a1.addChild(oID1a1a);
- oID1a1.addChild(oID1a1b);
- oID1a1a.addChild(oID1a1a1);
- oID1a1b.addChild(oID1a1a2);
- oID1b1.addChild(oID1b1a);
- oID1b1.addChild(oID1b1b);
- oID1b1a.addChild(oID1b1a1);
- oID1b1b.addChild(oID1b1a2);
+  dialogueBank[0] = oID1;
+  oID1.addChild(oID1a);
+  oID1.addChild(oID1b);
+  oID1a.addChild(oID1a1);
+  oID1b.addChild(oID1b1);
+  oID1a1.addChild(oID1a1a);
+  oID1a1.addChild(oID1a1b);
+  oID1a1a.addChild(oID1a1a1);
+  oID1a1b.addChild(oID1a1a2);
+  oID1b1.addChild(oID1b1a);
+  oID1b1.addChild(oID1b1b);
+  oID1b1a.addChild(oID1b1a1);
+  oID1b1b.addChild(oID1b1a2);
 }
 
 void docBank() {
@@ -47,9 +47,9 @@ void docBank() {
   DialogueNode where = new DialogueNode(false, "1 - \"Where can I repair my ship?\" [Leave.]");
   DialogueNode hope = new DialogueNode(true, "\"I hope I won't see you in my clinic again, but if you need any medical assistance, you know where to find me.\"");
   DialogueNode mech = new DialogueNode(true, "\"Talk to the Mechanic, she's bound to have something for you.\"");
-  
+
   dialogueBank[0] = docFirst;
-  docFirst.addChild(op1);  
+  docFirst.addChild(op1);
   docFirst.addChild(op2);
   op1.addChild(op1r);
   op2.addChild(op2r);
@@ -105,7 +105,7 @@ void mechBank() {
   DialogueNode stay = new DialogueNode("1 - Go back. Go over the parts you need again.");
   DialogueNode bye = new DialogueNode("\"Have a good one, offworlder!\"");
   DialogueNode ret = new DialogueNode("0 - [Return to the list of parts.]");
-  
+
   dialogueBank[1] = mechFirst;
   mechFirst.addChild(gen);
   gen.addChild(sale);
@@ -155,7 +155,7 @@ void johnBank() {
   DialogueNode offerkey = new DialogueNode("\"Well, didn't think you'd have the guts to do it. Ah well. Nice job. I suppose you want a key to the Graveyard?\"");
   DialogueNode sucks = new DialogueNode("\"Sucks to suck, buttercup. I'm not going out there.\"");
   DialogueNode johnbye = new DialogueNode("He doesn't offer a farewell, continuing to squint at the streets below.");
-  
+
   dialogueBank[2] = johnFirst;
   johnFirst.addChild(mechrec);
   mechrec.addChild(mechrecr);
@@ -171,4 +171,50 @@ void johnBank() {
   offerkey.addChild(givekey);
   dontgrab.addChild(sucks);
   sucks.addChild(grab);
+}
+
+////////////////////////////////////////////////////////////////////////////////////////
+//BELOW ARE ITEM DIALOGUE BANKS
+////////////////////////////////////////////////////////////////////////////////////////
+
+void burnerBank() {
+  DialogueNode oID1 = new DialogueNode("Dial", "You found the [Afterburner MN 100]! Would you like to pick up this item?");
+  DialogueNode oID1a = new DialogueNode("Choice", "0 - Yes.");
+  DialogueNode oID1b = new DialogueNode("Choice", "1 - No.");
+  DialogueNode oID1a1 = new DialogueNode("Dial", "Congratulations! [Afterburner MN 100] has been added to the inventory!");
+  DialogueNode oID1b1 = new DialogueNode("Dial", "You go along on your way, leaving the [Afterburner MN 100] to collect dust for eternity.");
+
+  dialogueBank[0] = oID1;
+  oID1.addChild(oID1a);
+  oID1.addChild(oID1b);
+  oID1a.addChild(oID1a1);
+  oID1b.addChild(oID1b1);
+}
+
+void shieldBank() {
+  DialogueNode oID1 = new DialogueNode("Dial", "You found the [Small Shield Extender]! Would you like to pick up this item?");
+  DialogueNode oID1a = new DialogueNode("Choice", "0 - Yes.");
+  DialogueNode oID1b = new DialogueNode("Choice", "1 - No.");
+  DialogueNode oID1a1 = new DialogueNode("Dial", "Congratulations! [Small Shield Extender] has been added to the inventory!");
+  DialogueNode oID1b1 = new DialogueNode("Dial", "You go along on your way, leaving the [Small Shield Extender] to collect dust for eternity.");
+
+  dialogueBank[1] = oID1;
+  oID1.addChild(oID1a);
+  oID1.addChild(oID1b);
+  oID1a.addChild(oID1a1);
+  oID1b.addChild(oID1b1);
+}
+
+void plateBank() {
+  DialogueNode oID1 = new DialogueNode("Dial", "You found the [Metal Plates]! Would you like to pick up this item?");
+  DialogueNode oID1a = new DialogueNode("Choice", "0 - Yes.");
+  DialogueNode oID1b = new DialogueNode("Choice", "1 - No.");
+  DialogueNode oID1a1 = new DialogueNode("Dial", "Congratulations! [Metal Plates] has been added to the inventory!");
+  DialogueNode oID1b1 = new DialogueNode("Dial", "You go along on your way, leaving the [Metal Plates] to collect dust for eternity.");
+
+  dialogueBank[2] = oID1;
+  oID1.addChild(oID1a);
+  oID1.addChild(oID1b);
+  oID1a.addChild(oID1a1);
+  oID1b.addChild(oID1b1);
 }

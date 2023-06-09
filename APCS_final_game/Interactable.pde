@@ -64,6 +64,12 @@ public class Interactable extends Collidable {
         mechBank();
       } else if (name == "Big Johnny") {
         johnBank();
+      } else if (name == "Afterburner MN 100") {
+        burnerBank();
+      } else if (name == "Small Shield Extender") {
+        shieldBank();
+      } else if (name == "Metal Plates") {
+        plateBank();
       } else {
         // DOES NOT WORK - Null Pointer Exception when called on an NPC other than Doc
         initializingTestBank();
@@ -83,7 +89,11 @@ public class Interactable extends Collidable {
   public void dialogue() {
     //if its the firstInteraction w/ the npc, you initialize the dialogueNode recent as the corresponding starting dialogueNode
     if (firstInteraction) {
-      recent = dialogueBank[getID() - 100];
+      if (getID() >= 200) {
+        recent = dialogueBank[getID() - 200];
+      } else {
+        recent = dialogueBank[getID() - 100];
+      }
     }
     //gets corresponding dialogueBank index based on objectID since interactables start from 100
     if (recent.hasChild()) {
@@ -96,18 +106,18 @@ public class Interactable extends Collidable {
       if (playerTurn == 0) {
         //if not player turn, print the current, set it to player turn & set waitingForInput to T
         System.out.println(recent.text());
-        if(recent.hasChild()){
+        if (recent.hasChild()) {
           for (DialogueNode child : recent.getChildren()) {
             System.out.println(child.text());
           }
-        playerTurn++;
-        playerTurn %= 2;
-        waitingForInput = true;
-        firstInteraction = false; 
+          playerTurn++;
+          playerTurn %= 2;
+          waitingForInput = true;
+          firstInteraction = false;
         }
-        /** might be needed later if we talk to the npc multiple times 
-        else{
-          firstInteraction = true; **/
+        /** might be needed later if we talk to the npc multiple times
+         else{
+         firstInteraction = true; **/
       }
     }
   }
