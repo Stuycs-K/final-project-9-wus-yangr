@@ -57,17 +57,18 @@ void keyPressed() {
     option = ((int) key)-48; //ASCII for numbered keys starts at '0' = 48
     waitingForInput = false;
     recentInteractable.dialogue();
-    /**
-    if (key == '0') {
-      option = 0;
-      waitingForInput = false;
-      recentInteractable.dialogue();
+  } 
+  else if (key == 'i') {
+    System.out.println("Player Inventory : ");
+    if (inventory[0]) {
+      System.out.println(" - Afterburner MN 100 (Main Quest Item)");
     }
-    if (key == '1') {
-      option = 1;
-      waitingForInput = false;
-      recentInteractable.dialogue();
-    }**/
+    if (inventory[1]) {
+      System.out.println(" - Small Shield Extender (Main Quest Item)");
+    }
+    if (inventory[2]) {
+      System.out.println(" - Metal Plates (Main Quest Item)");
+    }
   }
 }
 
