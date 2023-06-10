@@ -27,25 +27,45 @@ ArrayList<int[]> findPath(int x, int y) {
   return path;
 }
 
-// DFS
+  public int distToGoal(int row, int col) {
+    return Math.abs(row - goalX) + Math.abs(col - goalY);
+  }
+
+// HEAP
 int solve(int row, int col, int count, int[][] maze) {
-    if(maze[row][col] == END){
-      path.add(new int[] {row,col});
-      return count;
-    }
-    else if(maze[row][col] ==  1 || maze[row][col] == PATH || maze[row][col] == CHECKED){
-      return -1;
-    }
-    else{
-      maze[row][col] = PATH;
-      for(int i = 0; i < 4; i++){
-        int stored = solve(row + directions[i][0], col + directions[i][1], count + 1, maze);
-        if(stored != -1){
-          path.add(new int[] {row,col});
-          return stored;
+  if (maze[row][col] == END) {
+    path.add(new int[] {row, col});
+    return count;
+  } else if (maze[row][col] ==  1 || maze[row][col] == PATH || maze[row][col] == CHECKED) {
+    return -1;
+  } else {
+    maze[row][col] = PATH;
+    int[][] distances = new int[4][2];
+    int[][] dirDist = new int[4][2];
+    for (int i = 0; i < 4; i++) {
+      distances[i][0] = distToGoal(row + directions[i][0],col + directions[i][1]);
+      distances[i][1] = i;
+    } 
+    for (int i = 0; i < 4; i++) {
+      for (int j = i; j < 4; j++) {
+        if (distances[i][0] > distances[j][0]) {
+          int[] temp = distances[i];
+          distances[i] = distances[j];
+          distances[j] = temp;
         }
       }
-      maze[row][col] = CHECKED;
-      return -1;
     }
+    for (int i = 0; i < 4; i++) {
+      dirDist[i]=new int[] {directions[distances[i][1]][0],directions[distances[i][1]][1]};
+    }
+    for (int i = 0; i < 4; i++) {
+      int stored = solve(row + dirDist[i][0], col + dirDist[i][1], count + 1, maze);
+      if (stored != -1) {
+        path.add(new int[] {row, col});
+        return stored;
+      }
+    }
+    maze[row][col] = CHECKED;
+    return -1;
+  }
 }

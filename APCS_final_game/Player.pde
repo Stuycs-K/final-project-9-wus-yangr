@@ -1,5 +1,7 @@
 public int playerX = (int) 1*gridSize+gridSize/2;
 public int playerY = (int) 38*gridSize+gridSize/2;
+public int goalX;
+public int goalY;
 public int playerRadius = (int) (gridSize/2+1);
 
 //corresponding object ids will correspond to their respective id's in this inventory 
@@ -12,6 +14,8 @@ public void mousePressed() {
     if (map[mouseX/gridSize][mouseY/gridSize] != INTERACTABLE) {
       // resets path if player cancels
       path = new ArrayList<int[]>();
+      goalX = mouseX/gridSize;
+      goalY = mouseY/gridSize;
       findPath(mouseX/gridSize,mouseY/gridSize);
     }
     for (Interactable item : interactables) {
