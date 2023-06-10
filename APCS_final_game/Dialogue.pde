@@ -223,17 +223,21 @@ void plateBank() {
 //SPACESHIP DIALOGUE
 ////////////////////////////////////////////////////////////////////////////////////////
 void shipBank() {
-  DialogueNode oID1 = new DialogueNode("Dial", "This is your crashed spaceship that you need to repair. You need to find an afterburner, a shield extender, and some metal plates.");
+  DialogueNode oID1 = new DialogueNode("Dial", "This is, presumably, your ship. It's tethered to the end of the dock. Blaster marks are evident on its hull.");
   DialogueNode oID1a = new DialogueNode("Choice", "0 - Repair it.");
-  DialogueNode oID1b = new DialogueNode("Choice", "1 - Leave.");
+  DialogueNode oID1b = new DialogueNode("Choice", "1 - Examine it.");
+  DialogueNode oID1c = new DialogueNode("Choice", "2 - Leave.");
   DialogueNode oID1a1 = new DialogueNode("Ending", "You have all the items needed! You can repair your ship!");
   DialogueNode oID1a2 = new DialogueNode("Dial", "You do not have all the items needed. Come back later when all 3 items have been collected.");
-  DialogueNode oID1b1 = new DialogueNode("Dial", "You go along on your way, leaving the [Metal Plates] to collect dust for eternity.");
+  DialogueNode oID1b1 = new DialogueNode("asdf", "Although it looks pretty bad, no critical structural damage is evident.\nIt appears to have a damaged Afterburner and Shield Extender. Metal Plates are needed to fix the holes in its hull.");
+  DialogueNode oID1c1 = new DialogueNode("Dial", "You go along on your way, leaving the [Metal Plates] to collect dust for eternity.");
 
-  dialogueBank[2] = oID1; // the index for this needs to be changed later depending on what the index of the ship is going to be 
+  dialogueBank[3] = oID1; // the index for this needs to be changed later depending on what the index of the ship is going to be 
   oID1.addChild(oID1a);
   oID1.addChild(oID1b);
+  oID1.addChild(oID1c);
   oID1a.addChild(oID1a1);
   oID1a.addChild(oID1a2);
   oID1b.addChild(oID1b1);
+  oID1c.addChild(oID1c1);
 }

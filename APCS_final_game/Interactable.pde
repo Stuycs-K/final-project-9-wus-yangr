@@ -30,6 +30,7 @@ public class Interactable extends Collidable {
     this.xCor = xCor;
     this.yCor = yCor;
     this.intColor = intColor;
+    this.id = id;
     map[xCor][yCor] = INTERACTABLE;
   }
 
@@ -55,7 +56,11 @@ public class Interactable extends Collidable {
     // checks if player is within 2 blocks and if mouse is in the NPC's block
     if (sqrt(pow(abs(playerX/gridSize-xCor), 2)+pow(abs(playerY/gridSize-yCor), 2)) <= 1.5
       && x == xCor && y == yCor) {
+    if (id < 200) {
       System.out.println("\n[You are now speaking with " + name + "]");
+    } else {
+      System.out.println("\n[You are now looking at " + name + "]");    
+      }
 
       // sets up dialogue
       if (name == "Doc") {
@@ -70,6 +75,8 @@ public class Interactable extends Collidable {
         shieldBank();
       } else if (name == "Metal Plates") {
         plateBank();
+      } else if (name == "Your Ship") {
+        shipBank();
       } else {
         // DOES NOT WORK - Null Pointer Exception when called on an NPC other than Doc
         initializingTestBank();

@@ -33,6 +33,8 @@ void setup() {
   interactables.add(se);
   Interactable mp = new Interactable(202, "Metal Plates", 21, 17, color(0, 155, 0));
   interactables.add(mp);
+  Interactable ship = new Interactable(203, "Your Ship", 14, 38, color(0, 105, 105));
+  interactables.add(ship);
 
   //sets all default values inventory to be false;
   for (int i = 0; i < inventory.length; i++) {
