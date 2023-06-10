@@ -11,10 +11,12 @@ static int SPACE = 0;
 static int COLLIDE = 1;
 DialogueNode recent;
 Interactable recentInteractable;
+PImage mapGraphics;
 
 void setup() {
   size(800, 800);
   PImage mapImg = loadImage("mapTest40x40.png");
+  mapGraphics = loadImage("mapTestGraphics.png");
   createMap(mapImg);
   //printAr(map);
 
@@ -95,7 +97,8 @@ void draw() {
   takeAction();
   background(color(0));
   //noStroke();
-  drawMap();
+  //drawMap();
+  drawMap(mapGraphics);
   fill(105);
   circle(playerX, playerY, playerRadius);
 
@@ -158,4 +161,8 @@ void drawMap() {
       square(i*gridSize, j*gridSize, gridSize);
     }
   }
+}
+
+void drawMap(PImage mapImage) {
+  image(mapImage,0,0);
 }
