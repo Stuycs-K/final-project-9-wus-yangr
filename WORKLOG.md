@@ -110,4 +110,6 @@ Updated dialogue() to work w/ id's greater >= 200 (items)
 
 ### date 6/09/2023
 
-Enabled dialogue to add the three items to inventory 
+Enabled dialogue to add the three items to inventory
+Added working inventory that displays to console
+Added ship dialogue  
