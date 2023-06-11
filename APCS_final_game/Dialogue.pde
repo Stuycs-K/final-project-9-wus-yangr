@@ -257,17 +257,18 @@ void plateBank() {
 ////////////////////////////////////////////////////////////////////////////////////////
 //SPACESHIP DIALOGUE
 ////////////////////////////////////////////////////////////////////////////////////////
+
 void shipBank() {
   DialogueNode oID1 = new DialogueNode("Dial", "This is, presumably, your ship. It's tethered to the end of the dock. Blaster marks are evident on its hull.");
   DialogueNode oID1a = new DialogueNode("Choice", "0 - Repair it.");
   DialogueNode oID1b = new DialogueNode("Choice", "1 - Examine it.");
   DialogueNode oID1c = new DialogueNode("Choice", "2 - Leave.");
-  DialogueNode oID1a1 = new DialogueNode("Ending", "You have all the items needed! You can repair your ship!");
-  DialogueNode oID1a2 = new DialogueNode("Dial", "You do not have all the items needed. Come back later when all 3 items have been collected.");
-  DialogueNode oID1b1 = new DialogueNode("asdf", "Although it looks pretty bad, no critical structural damage is evident.\nIt appears to have a damaged Afterburner and Shield Extender. Metal Plates are needed to fix the holes in its hull.");
-  DialogueNode oID1c1 = new DialogueNode("Dial", "You go along on your way, leaving the [Metal Plates] to collect dust for eternity.");
+  DialogueNode oID1a1 = new DialogueNode("end", "You have all the items needed! It's time to repair your ship and get out of this city!");
+  DialogueNode oID1a2 = new DialogueNode("end", "You do not have all the items needed. Come back later when all 3 items have been collected.");
+  DialogueNode oID1b1 = new DialogueNode("end", "Although it looks pretty bad, no critical structural damage is evident.\nIt appears to have a damaged Afterburner and Shield Extender. Metal Plates are needed to fix the holes in its hull.");
+  DialogueNode oID1c1 = new DialogueNode("end", "You decide to leave the wrecked ship and explore your surroundings. Maybe you could find some parts to repair the ship with around the city?");
 
-  dialogueBank[3] = oID1; // the index for this needs to be changed later depending on what the index of the ship is going to be 
+  dialogueBank[3] = oID1;
   oID1.addChild(oID1a);
   oID1.addChild(oID1b);
   oID1.addChild(oID1c);
