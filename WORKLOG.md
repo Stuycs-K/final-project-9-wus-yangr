@@ -134,3 +134,8 @@ Added ship dialogue
 Updated ship dialogue
 Enabled dialogue() to check for inventory when choosing to repair the ship
 Game now has an ending due to the above two  
+
+### date 6/11/2023
+
+Updated README file
+Added separate ship dialogue() after it has been repaired allowing for better ending
