@@ -2,6 +2,7 @@ int INTERACTABLE = 2;
 boolean waitingForInput = false;
 int playerTurn = 0;
 int option = 0;
+boolean possessItems = false; 
 
 /**
  TODO:
@@ -81,6 +82,7 @@ public class Interactable extends Collidable {
 
   //recentInteractables has to be set to this interactable for this to run properly
   public void dialogue() {
+    possessItems = (protag.inventory[0] && protag.inventory[1] && protag.inventory[2]);
     //if its the firstInteraction w/ the npc, you initialize the dialogueNode recent as the corresponding starting dialogueNode
     if (firstInteraction) {
       recent = dialogueBank[getID()%100];
@@ -90,8 +92,14 @@ public class Interactable extends Collidable {
       //if player turn, wait for input
       if (playerTurn == 1) {
         //if the ship dialogue is being run, this is run instead as the inventory needs to be checked and dialogue outcomes will be based on that
-        if (getID() == 203 && option == 0 && !protag.inventory[0] && !protag.inventory[1] && !protag.inventory[2]) {
-          recent = recent.getChild(option).getChild(1);
+        if (getID() == 203 && option == 0) {
+          if(!possessItems){
+            recent = recent.getChild(option).getChild(1);
+          }
+          else{
+            recent = recent.getChild(option).getChild(0);
+            repaired = true; 
+          }
         } 
         else {
           recent = recent.getChild(option).getChild(0);
