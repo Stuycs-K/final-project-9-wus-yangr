@@ -6,18 +6,18 @@ int xWidth = 800;
 int yHeight = 800;
 int gridSize = 20;
 ArrayList<Interactable> interactables = new ArrayList<Interactable>();
-static int SPACE = 0;
-static int COLLIDE = 1;
 DialogueNode recent;
 Interactable recentInteractable;
 Player protag = new Player();
 PImage mapGraphics;
 Map mapGame;
+Pathfinding pathfinder;
 
 void setup() {
   size(800, 800);
   mapGame = new Map();
-  
+  pathfinder = new Pathfinding();
+
   // Sets up NPCs
   Interactable doc = new Interactable(100, "Doc", 4, 33, color(255, 0, 0));
   interactables.add(doc);
@@ -59,8 +59,7 @@ void keyPressed() {
     option = ((int) key)-48; //ASCII for numbered keys starts at '0' = 48
     waitingForInput = false;
     recentInteractable.dialogue();
-  } 
-  else if (key == 'i') {
+  } else if (key == 'i') {
     System.out.println("Player Inventory : ");
     if (protag.inventory[0]) {
       System.out.println(" - Afterburner MN 100 (Main Quest Item)");
@@ -110,36 +109,36 @@ void draw() {
    **/
 }
 
-// called during draw() to call functions unrelated to drawing
-void takeAction() {
-  // pathfinding
-  if (path.size() > 0) {
-    protag.playerX = path.get(path.size()-1)[0];
-    protag.playerY = path.get(path.size()-1)[1];
-    //System.out.println(playerX + " " + playerY + " pathsize:" + path.size());
-    path.remove(path.size()-1);
-  } else {
-    // Prints player coord to easily figure out where to place Interactables
-    // System.out.println(playerX/gridSize + " " + playerY/gridSize);
-  }
-}
-
 // point-and-click pathfinding: greedy, there shouldn't be any locations on the map where A* would be necessary
 public void mousePressed() {
   // mouse must be within bounds
   if (mapGame.isMouseLegal()) {
     if (!mapGame.isInteractable()) {
       // resets path if player cancels
-      path = new ArrayList<int[]>();
+      pathfinder.path = new ArrayList<int[]>();
       protag.goalX = mouseX/gridSize;
       protag.goalY = mouseY/gridSize;
-      findPath(mouseX/gridSize,mouseY/gridSize);
+      pathfinder.findPath(mouseX/gridSize, mouseY/gridSize);
     }
     for (Interactable item : interactables) {
-      item.checkInteract(mouseX/gridSize,mouseY/gridSize);
+      item.checkInteract(mouseX/gridSize, mouseY/gridSize);
     }
     //playerX = path.get(path.size()-1)[0]*gridSize + gridSize/2;
     //playerY = path.get(path.size()-1)[1]*gridSize + gridSize/2;
     //System.out.println(playerX + " " + playerY);
+  }
+}
+
+// called during draw() to call functions unrelated to drawing
+void takeAction() {
+  // pathfinding
+  if (pathfinder.path.size() > 0) {
+    protag.playerX = pathfinder.path.get(pathfinder.path.size()-1)[0];
+    protag.playerY = pathfinder.path.get(pathfinder.path.size()-1)[1];
+    //System.out.println(playerX + " " + playerY + " pathsize:" + path.size());
+    pathfinder.path.remove(pathfinder.path.size()-1);
+  } else {
+    // Prints player coord to easily figure out where to place Interactables
+    // System.out.println(playerX/gridSize + " " + playerY/gridSize);
   }
 }

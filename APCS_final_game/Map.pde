@@ -1,9 +1,9 @@
 //comment this out when testing bcuz this isn't going to compile w/o finishing the other stuff
 /*public class map {
  int[][] map = new int[][];
- int playerX = 51; 
+ int playerX = 51;
  int playerY = 51;
- //starting coords are 51, 51 > places it in map[1][1] essentialy 
+ //starting coords are 51, 51 > places it in map[1][1] essentialy
  
  public void drawTile(int x, int y) {
  if (map[y][x].getID == 0) {
@@ -42,7 +42,14 @@
  }
  }
  }
- */
+ **/
+
+static final int SPACE = 0;
+static final int COLLIDE = 1;
+static final int START = -2;
+static final int END = -3;
+static final int CHECKED = -4;
+static final int PATH = -5;
 
 public class Map {
   int[][] map = new int[xWidth/gridSize][yHeight/gridSize];
