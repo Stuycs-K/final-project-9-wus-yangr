@@ -109,12 +109,7 @@ void draw() {
   // draws interactables
   for (Interactable item : interactables) {
     //System.out.println(item.getXCor() + " " + item.getYCor());
-    fill(item.getColor());
-    if (item.getID() < 200) {
-      circle(item.getXCor()*gridSize+gridSize/2, item.getYCor()*gridSize+gridSize/2, protag.playerRadius);
-    } else if (item.getID() < 300) {
-      square(item.getXCor()*gridSize+gridSize/4, item.getYCor()*gridSize+gridSize/4, gridSize/2);
-    }
+    item.draw();
   }
 
   /** REMOVED FEATURE - for now

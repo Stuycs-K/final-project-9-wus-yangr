@@ -27,6 +27,15 @@ public class Interactable extends Collidable {
   public color getColor() {
     return intColor;
   }
+  
+  void draw() {
+    fill(getColor());
+    if (getID() < 200) {
+      circle(getXCor()*gridSize+gridSize/2, getYCor()*gridSize+gridSize/2, protag.playerRadius);
+    } else if (getID() < 300) {
+      square(getXCor()*gridSize+gridSize/4, getYCor()*gridSize+gridSize/4, gridSize/2);
+    }
+  }
 
   // checks if player is in range and wants to interact with the NPC
   // takes int x and y as coordinates, called on mousePressed

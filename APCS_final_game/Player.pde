@@ -9,7 +9,7 @@ public class Player {
   public boolean[] inventory = new boolean[10];
   
   void draw() {
-    fill(105);
+    fill(color(0,255,255));
     circle(playerX, playerY, playerRadius);
   }
 }
