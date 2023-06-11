@@ -5,9 +5,11 @@ import java.util.Scanner;
 int xWidth = 800;
 int yHeight = 800;
 int gridSize = 20;
+
 ArrayList<Interactable> interactables = new ArrayList<Interactable>();
 DialogueNode recent;
 Interactable recentInteractable;
+
 Player protag = new Player();
 PImage mapGraphics;
 Map mapGame;
@@ -80,10 +82,6 @@ void draw() {
   //drawMap();
   mapGame.drawMap(mapGraphics);
   protag.draw();
-
-  // player's coord marker
-  /**fill(color(255,0,0));
-   circle(playerX,playerY, 3);**/
 
   // draws interactables
   for (Interactable item : interactables) {
