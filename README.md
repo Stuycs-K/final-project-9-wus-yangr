@@ -11,9 +11,11 @@ A narrative-centric open-world point-and-click RPG. You crash land near Hailan, 
 Explore the map, talk to npcs, and collect the 3 items needed to repair the ship.
 
 NPCs = colored circles
+
 Interactable Items = colored rectangles
+
 Ship = teal colored rectangle at the bottom of the map
 
 When engaged in dialogue, only click the numbers corresponding to the options available or else the program will break and it will need to be rerun to reset it.
 
-After collecting all 3 items, you can return to the ship and repair it. 
+After collecting all 3 items, you can return to the ship and repair it.
