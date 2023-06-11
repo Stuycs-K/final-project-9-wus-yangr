@@ -17,7 +17,7 @@ ArrayList<int[]> findPath(int x, int y) {
     }
   }
   //System.out.println(x + " " + y);
-  path.add(new int[] {playerX/gridSize, playerY/gridSize});
+  path.add(new int[] {protag.playerX/gridSize, protag.playerY/gridSize});
   mapClone[path.get(0)[0]][path.get(0)[1]] = START;
   mapClone[x][y] = END;
   //printAr(mapClone);
@@ -28,7 +28,7 @@ ArrayList<int[]> findPath(int x, int y) {
 }
 
   public int distToGoal(int row, int col) {
-    return Math.abs(row - goalX) + Math.abs(col - goalY);
+    return Math.abs(row - protag.goalX) + Math.abs(col - protag.goalY);
   }
 
 // HEAP

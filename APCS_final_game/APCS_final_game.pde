@@ -11,12 +11,13 @@ static int SPACE = 0;
 static int COLLIDE = 1;
 DialogueNode recent;
 Interactable recentInteractable;
+Player protag = new Player();
 PImage mapGraphics;
 
 void setup() {
   size(800, 800);
   PImage mapImg = loadImage("mapTest40x40.png");
-  mapGraphics = loadImage("mapTestGraphics.png");
+  mapGraphics = loadImage("mapGraphicFinal.png");
   createMap(mapImg);
   //printAr(map);
 
@@ -39,8 +40,8 @@ void setup() {
   interactables.add(ship);
 
   //sets all default values inventory to be false;
-  for (int i = 0; i < inventory.length; i++) {
-    inventory[i] = false;
+  for (int i = 0; i < protag.inventory.length; i++) {
+    protag.inventory[i] = false;
   }
 }
 
@@ -64,13 +65,13 @@ void keyPressed() {
   } 
   else if (key == 'i') {
     System.out.println("Player Inventory : ");
-    if (inventory[0]) {
+    if (protag.inventory[0]) {
       System.out.println(" - Afterburner MN 100 (Main Quest Item)");
     }
-    if (inventory[1]) {
+    if (protag.inventory[1]) {
       System.out.println(" - Small Shield Extender (Main Quest Item)");
     }
-    if (inventory[2]) {
+    if (protag.inventory[2]) {
       System.out.println(" - Metal Plates (Main Quest Item)");
     }
   }
@@ -99,8 +100,7 @@ void draw() {
   //noStroke();
   //drawMap();
   drawMap(mapGraphics);
-  fill(105);
-  circle(playerX, playerY, playerRadius);
+  protag.draw();
 
   // player's coord marker
   /**fill(color(255,0,0));
@@ -111,7 +111,7 @@ void draw() {
     //System.out.println(item.getXCor() + " " + item.getYCor());
     fill(item.getColor());
     if (item.getID() < 200) {
-      circle(item.getXCor()*gridSize+gridSize/2, item.getYCor()*gridSize+gridSize/2, playerRadius);
+      circle(item.getXCor()*gridSize+gridSize/2, item.getYCor()*gridSize+gridSize/2, protag.playerRadius);
     } else if (item.getID() < 300) {
       square(item.getXCor()*gridSize+gridSize/4, item.getYCor()*gridSize+gridSize/4, gridSize/2);
     }
@@ -139,8 +139,8 @@ void draw() {
 void takeAction() {
   // pathfinding
   if (path.size() > 0) {
-    playerX = path.get(path.size()-1)[0]*gridSize + gridSize/2;
-    playerY = path.get(path.size()-1)[1]*gridSize + gridSize/2;
+    protag.playerX = path.get(path.size()-1)[0]*gridSize + gridSize/2;
+    protag.playerY = path.get(path.size()-1)[1]*gridSize + gridSize/2;
     //System.out.println(playerX + " " + playerY + " pathsize:" + path.size());
     path.remove(path.size()-1);
   } else {
@@ -165,4 +165,32 @@ void drawMap() {
 
 void drawMap(PImage mapImage) {
   image(mapImage,0,0);
+}
+
+// point-and-click pathfinding: greedy, there shouldn't be any locations on the map where A* would be necessary
+public void mousePressed() {
+  // mouse must be within bounds
+  if (mouseX < xWidth && mouseY < yHeight && map[mouseX/gridSize][mouseY/gridSize] != COLLIDE) {
+    if (map[mouseX/gridSize][mouseY/gridSize] != INTERACTABLE) {
+      // resets path if player cancels
+      path = new ArrayList<int[]>();
+      protag.goalX = mouseX/gridSize;
+      protag.goalY = mouseY/gridSize;
+      findPath(mouseX/gridSize,mouseY/gridSize);
+    }
+    for (Interactable item : interactables) {
+      item.checkInteract(mouseX/gridSize,mouseY/gridSize);
+    }
+    //playerX = path.get(path.size()-1)[0]*gridSize + gridSize/2;
+    //playerY = path.get(path.size()-1)[1]*gridSize + gridSize/2;
+    //System.out.println(playerX + " " + playerY);
+  }
+}
+
+// checks what quadrant player is in
+public boolean touchingObject() {
+  if (map[protag.playerX/gridSize][protag.playerY/gridSize] == 0) {
+    return false;
+  }
+  return true;
 }

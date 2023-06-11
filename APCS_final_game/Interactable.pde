@@ -54,7 +54,7 @@ public class Interactable extends Collidable {
   // takes int x and y as coordinates, called on mousePressed
   public boolean checkInteract(int x, int y) {
     // checks if player is within 2 blocks and if mouse is in the NPC's block
-    if (sqrt(pow(abs(playerX/gridSize-xCor), 2)+pow(abs(playerY/gridSize-yCor), 2)) <= 1.5
+    if (sqrt(pow(abs(protag.playerX/gridSize-xCor), 2)+pow(abs(protag.playerY/gridSize-yCor), 2)) <= 1.5
       && x == xCor && y == yCor) {
     if (id < 200) {
       System.out.println("\n[You are now speaking with " + name + "]");
@@ -111,7 +111,7 @@ public class Interactable extends Collidable {
         System.out.println(recent.text());
         if(getID() >= 200){
           if(recent.getString().equals("Inventory")){
-            inventory[getID() - 200] = true; 
+            protag.inventory[getID() - 200] = true; 
           }
         }
         try {

@@ -11,7 +11,7 @@ public class Door extends Interactable{
  public void openDoor(){
    //non-working method due to more deliberation needed regarding dialogue 
    dialogue();
-   playerX = endx; 
-   playerY = endy; 
+   protag.playerX = endx; 
+   protag.playerY = endy; 
  }
 }
