@@ -12,38 +12,16 @@ int option = 0;
  **/
 
 public class Interactable extends Collidable {
-  int id;
   String name;
-  int xCor;
-  int yCor;
   color intColor;
   boolean firstInteraction = true;
 
-  public Interactable(int id) {
-    super(id);
-  }
-
   // change of plans: id > 200 is an Item (square symbol) and id > 100 is an NPC (circle symbol)
   public Interactable(int id, String name, int xCor, int yCor, color intColor) {
-    super(id);
+    super(id, xCor, yCor);
     this.name = name;
-    this.xCor = xCor;
-    this.yCor = yCor;
     this.intColor = intColor;
-    this.id = id;
     map[xCor][yCor] = INTERACTABLE;
-  }
-
-  public int getId() {
-    return id;
-  }
-
-  public int getXCor() {
-    return xCor;
-  }
-
-  public int getYCor() {
-    return yCor;
   }
 
   public color getColor() {
