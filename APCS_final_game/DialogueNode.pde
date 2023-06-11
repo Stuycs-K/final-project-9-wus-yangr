@@ -1,7 +1,8 @@
 class DialogueNode {
   String id;
-  // if interactable is true, the dialogue is the interactable's and player shouldn't be allowed to input commands
+  // ignore this statement for now: if interactable is true, the dialogue is the interactable's and player shouldn't be allowed to input commands
   boolean interactable;
+  DialogueTag changeTag;
   String dialogue;
   ArrayList<DialogueNode> parents;
   ArrayList<DialogueNode> children;
@@ -19,8 +20,18 @@ class DialogueNode {
     children = new ArrayList<DialogueNode>();
   }
 
+  // typically used for dialogues that end a tree or add an item to the inventory
   DialogueNode(String id, String dialogue) {
     this.id = id;
+    this.dialogue = dialogue;
+    parents = null;
+    children = new ArrayList<DialogueNode>();
+  }
+  
+  // dialogue that can change tags
+  DialogueNode(String id, DialogueTag changeTag, String dialogue) {
+    this.id = id;
+    this.changeTag = changeTag;
     this.dialogue = dialogue;
     parents = null;
     children = new ArrayList<DialogueNode>();
@@ -56,5 +67,9 @@ class DialogueNode {
   
   String getString(){
     return id;
+  }
+  
+  void changeTag() {
+    changeTag.changeTag();
   }
 }

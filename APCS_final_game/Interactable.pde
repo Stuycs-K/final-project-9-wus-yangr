@@ -96,11 +96,7 @@ public class Interactable extends Collidable {
   public void dialogue() {
     //if its the firstInteraction w/ the npc, you initialize the dialogueNode recent as the corresponding starting dialogueNode
     if (firstInteraction) {
-      if (getID() >= 200) {
-        recent = dialogueBank[getID() - 200];
-      } else {
-        recent = dialogueBank[getID() - 100];
-      }
+        recent = dialogueBank[getID()%100];
     }
     //gets corresponding dialogueBank index based on objectID since interactables start from 100
     if (recent.hasChild()) {
@@ -118,6 +114,13 @@ public class Interactable extends Collidable {
             inventory[getID() - 200] = true; 
           }
         }
+        try {
+        if(recent.getString().equals("end")){
+          firstInteraction=true;
+        }
+        
+        recent.changeTag();
+    } catch (Exception e) {}
         if (recent.hasChild()) {
           for (DialogueNode child : recent.getChildren()) {
             System.out.println(child.text());

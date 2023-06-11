@@ -1,3 +1,15 @@
+// FORMAT
+/**
+boolean trueFalse = false;
+void nameBank() {
+  DialogueNode dialogueThing = new DialogueNode(tag, "Dialogue here");
+  
+  dialogueBank[id%100] = dialogueThing;
+  add children here
+}
+**/
+
+
 //we're going to add the beginning dialogue for each object to this array
 DialogueNode[] dialogueBank = new DialogueNode[10];
 
@@ -32,6 +44,7 @@ void initializingTestBank() {
   oID1b1b.addChild(oID1b1a2);
 }
 
+DialogueTag spokeToDoc = new DialogueTag(false);
 void docBank() {
   DialogueNode docFirst = new DialogueNode(true, "A man in a clean, white jacket sits behind the desk.");
   DialogueNode op1 = new DialogueNode(false, "0 - Stand silently.");
@@ -45,14 +58,33 @@ void docBank() {
   DialogueNode bad = new DialogueNode(true, "\"Bad enough that you'll crash again if you try flying in that mess.\"");
   DialogueNode thx = new DialogueNode(false, "0 - \"Okay, thanks for the info.\" [Leave.]");
   DialogueNode where = new DialogueNode(false, "1 - \"Where can I repair my ship?\" [Leave.]");
-  DialogueNode hope = new DialogueNode(true, "\"I hope I won't see you in my clinic again, but if you need any medical assistance, you know where to find me.\"");
-  DialogueNode mech = new DialogueNode(true, "\"Talk to the Mechanic, she's bound to have something for you.\"");
+  DialogueNode hope = new DialogueNode("end", spokeToDoc, "\"I hope I won't see you in my clinic again, but if you need any medical assistance, you know where to find me.\"");
+  DialogueNode mech = new DialogueNode("end", spokeToDoc, "\"Talk to the Mechanic, she's bound to have something for you.\"");
+  
+  // second option for second interaction (DELETE THIS)
+  DialogueNode docSecond = new DialogueNode("testing");
+  DialogueNode docTest = new DialogueNode("0 - hi");
+  DialogueNode docTest2 = new DialogueNode("end", "hi");
+  
+  // if you've spoken to him before:
+  DialogueNode silence = new DialogueNode("After a while, he looks up. \"How's your ship?\"");
+  DialogueNode notSilence = new DialogueNode("\"He looks up. \"How's your ship?\"");
 
+  // It always starts with him behind the desk and silence/clear throat
   dialogueBank[0] = docFirst;
+  
+  if (!spokeToDoc.getTag()) { 
+    // branches here: If you haven't spoken to him before, he'll bring up you waking up and the crash
+    op1.addChild(op1r);
+    op2.addChild(op2r);
+  } else {
+    // if you have, he'll ask about your ship
+    op1.addChild(silence);
+    op2.addChild(notSilence);
+  }
   docFirst.addChild(op1);
   docFirst.addChild(op2);
-  op1.addChild(op1r);
-  op2.addChild(op2r);
+  
   op1r.addChild(hur1r);
   op1r.addChild(hur2r);
   op2r.addChild(hur1r);
@@ -67,9 +99,11 @@ void docBank() {
   where.addChild(mech);
   //hur.addChild(hur1r);
   //hur.addChild(hur2r);
-  // read from file into the dialoguenode data structure
+  docSecond.addChild(docTest);
+  docTest.addChild(docTest2);
 }
 
+DialogueTag spokeToMech = new DialogueTag(false);
 void mechBank() {
   DialogueNode mechFirst = new DialogueNode("a", "A woman in overalls fixes an engine in the center of the store. As you approach, she takes off her soot-stained goggles.\n\"Hey there, offworlder. Doc told me you were stopping by.\"");
   DialogueNode gen = new DialogueNode("0 - \"What's for sale?\"");
@@ -103,7 +137,7 @@ void mechBank() {
   DialogueNode bruh = new DialogueNode("That's all the parts you need. You haven't forgotten anything. But with your head injury, it might be a good idea to double-check.");
   DialogueNode leave = new DialogueNode("4 - \"I'll come back later.\" [Leave.]");
   DialogueNode stay = new DialogueNode("1 - Go back. Go over the parts you need again.");
-  DialogueNode bye = new DialogueNode("\"Have a good one, offworlder!\"");
+  DialogueNode bye = new DialogueNode("end", "\"Have a good one, offworlder!\"");
   DialogueNode ret = new DialogueNode("0 - [Return to the list of parts.]");
 
   dialogueBank[1] = mechFirst;
@@ -141,6 +175,7 @@ void mechBank() {
   stay.addChild(wait);
 }
 
+DialogueTag spokeToJohn = new DialogueTag(false);
 void johnBank() {
   DialogueNode johnFirst = new DialogueNode("A man stares out of the window with a pair of binoculars.\n\"Pilot.\"");
   DialogueNode mechrec = new DialogueNode("0 - \"The Mechanic told me you could give me a gate key.\"");
@@ -154,7 +189,7 @@ void johnBank() {
   DialogueNode dontgrab = new DialogueNode("1 - \"That doesn't look safe.\"");
   DialogueNode offerkey = new DialogueNode("\"Well, didn't think you'd have the guts to do it. Ah well. Nice job. I suppose you want a key to the Graveyard?\"");
   DialogueNode sucks = new DialogueNode("\"Sucks to suck, buttercup. I'm not going out there.\"");
-  DialogueNode johnbye = new DialogueNode("He doesn't offer a farewell, continuing to squint at the streets below.");
+  DialogueNode johnbye = new DialogueNode("end","He doesn't offer a farewell, continuing to squint at the streets below.");
 
   dialogueBank[2] = johnFirst;
   johnFirst.addChild(mechrec);
