@@ -18,6 +18,8 @@ Pathfinding pathfinder;
 boolean repaired = false; 
 boolean threeItems = (protag.inventory[0] && protag.inventory[1] && protag.inventory[2]);
 
+ ArrayList<Node> tempPath = new ArrayList<Node>();
+
 void setup() {
   size(800, 800);
   mapGame = new Map();
@@ -119,14 +121,17 @@ public void mousePressed() {
       pathfinder.path = new ArrayList<int[]>();
       protag.goalX = mouseX/gridSize;
       protag.goalY = mouseY/gridSize;
-      pathfinder.findPath(mouseX/gridSize, mouseY/gridSize);
+      //pathfinder.findPath(mouseX/gridSize, mouseY/gridSize);
+      AstarPathfinding newPathfinder = new AstarPathfinding();
+      Grid mapGrid = new Grid(mapGame.map);
+      tempPath = newPathfinder.find(mapGrid, new Node(protag.playerX,protag.playerY,false), new Node(mouseX/gridSize,mouseY/gridSize,false));
+      for (Node item : tempPath) {
+        pathfinder.path.add(new int[] {item.getX(),item.getY()});
+      }
     }
     for (Interactable item : interactables) {
       item.checkInteract(mouseX/gridSize, mouseY/gridSize);
     }
-    //playerX = path.get(path.size()-1)[0]*gridSize + gridSize/2;
-    //playerY = path.get(path.size()-1)[1]*gridSize + gridSize/2;
-    //System.out.println(playerX + " " + playerY);
   }
 }
 
