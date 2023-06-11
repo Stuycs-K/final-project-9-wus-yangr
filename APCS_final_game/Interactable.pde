@@ -16,12 +16,12 @@ public class Interactable extends Collidable {
   color intColor;
   boolean firstInteraction = true;
 
-  // change of plans: id > 200 is an Item (square symbol) and id > 100 is an NPC (circle symbol)
+  // id > 200 is an Item (square symbol) and id > 100 is an NPC (circle symbol)
   public Interactable(int id, String name, int xCor, int yCor, color intColor) {
     super(id, xCor, yCor);
     this.name = name;
     this.intColor = intColor;
-    map[xCor][yCor] = INTERACTABLE;
+    mapGame.addInteractable(xCor,yCor);
   }
 
   public color getColor() {
@@ -41,7 +41,7 @@ public class Interactable extends Collidable {
   // takes int x and y as coordinates, called on mousePressed
   public boolean checkInteract(int x, int y) {
     // checks if player is within 2 blocks and if mouse is in the NPC's block
-    if (sqrt(pow(abs(protag.playerX/gridSize-xCor), 2)+pow(abs(protag.playerY/gridSize-yCor), 2)) <= 1.5
+    if (sqrt(pow(abs(protag.playerX-xCor), 2)+pow(abs(protag.playerY-yCor), 2)) <= 1.5
       && x == xCor && y == yCor) {
     if (id < 200) {
       System.out.println("\n[You are now speaking with " + name + "]");

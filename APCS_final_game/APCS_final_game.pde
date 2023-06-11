@@ -5,7 +5,6 @@ import java.util.Scanner;
 int xWidth = 800;
 int yHeight = 800;
 int gridSize = 20;
-int[][] map = new int[xWidth/gridSize][yHeight/gridSize];
 ArrayList<Interactable> interactables = new ArrayList<Interactable>();
 static int SPACE = 0;
 static int COLLIDE = 1;
@@ -13,14 +12,12 @@ DialogueNode recent;
 Interactable recentInteractable;
 Player protag = new Player();
 PImage mapGraphics;
+Map mapGame;
 
 void setup() {
   size(800, 800);
-  PImage mapImg = loadImage("mapTest40x40.png");
-  mapGraphics = loadImage("mapGraphicFinal.png");
-  createMap(mapImg);
-  //printAr(map);
-
+  mapGame = new Map();
+  
   // Sets up NPCs
   Interactable doc = new Interactable(100, "Doc", 4, 33, color(255, 0, 0));
   interactables.add(doc);
@@ -77,29 +74,12 @@ void keyPressed() {
   }
 }
 
-// Creates a map of 1s and 0s from a black and white image
-void createMap(PImage mapImg) {
-  for (int i = 0; i < map.length; i++) {
-    for (int j = 0; j < map[0].length; j++) {
-      int pixel = mapImg.get(i, j);
-      //System.out.println(pixel);
-      // if the pixel is black, make it a wall
-      if (pixel == -16777216) {
-        map[i][j] = COLLIDE;
-        // if the pixel is white, make it a space
-      } else if (pixel == -1) {
-        map[i][j] = SPACE;
-      }
-    }
-  }
-}
-
 void draw() {
   takeAction();
   background(color(0));
   //noStroke();
   //drawMap();
-  drawMap(mapGraphics);
+  mapGame.drawMap(mapGraphics);
   protag.draw();
 
   // player's coord marker
@@ -134,8 +114,8 @@ void draw() {
 void takeAction() {
   // pathfinding
   if (path.size() > 0) {
-    protag.playerX = path.get(path.size()-1)[0]*gridSize + gridSize/2;
-    protag.playerY = path.get(path.size()-1)[1]*gridSize + gridSize/2;
+    protag.playerX = path.get(path.size()-1)[0];
+    protag.playerY = path.get(path.size()-1)[1];
     //System.out.println(playerX + " " + playerY + " pathsize:" + path.size());
     path.remove(path.size()-1);
   } else {
@@ -144,29 +124,11 @@ void takeAction() {
   }
 }
 
-// Draws the map
-void drawMap() {
-  for (int i = 0; i < map.length; i++) {
-    for (int j = 0; j < map[0].length; j++) {
-      if (map[i][j] == COLLIDE) {
-        fill(color(0));
-      } else {
-        fill(color(255, 255, 255));
-      }
-      square(i*gridSize, j*gridSize, gridSize);
-    }
-  }
-}
-
-void drawMap(PImage mapImage) {
-  image(mapImage,0,0);
-}
-
 // point-and-click pathfinding: greedy, there shouldn't be any locations on the map where A* would be necessary
 public void mousePressed() {
   // mouse must be within bounds
-  if (mouseX < xWidth && mouseY < yHeight && map[mouseX/gridSize][mouseY/gridSize] != COLLIDE) {
-    if (map[mouseX/gridSize][mouseY/gridSize] != INTERACTABLE) {
+  if (mapGame.isMouseLegal()) {
+    if (!mapGame.isInteractable()) {
       // resets path if player cancels
       path = new ArrayList<int[]>();
       protag.goalX = mouseX/gridSize;
@@ -180,12 +142,4 @@ public void mousePressed() {
     //playerY = path.get(path.size()-1)[1]*gridSize + gridSize/2;
     //System.out.println(playerX + " " + playerY);
   }
-}
-
-// checks what quadrant player is in
-public boolean touchingObject() {
-  if (map[protag.playerX/gridSize][protag.playerY/gridSize] == 0) {
-    return false;
-  }
-  return true;
 }

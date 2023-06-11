@@ -5,19 +5,13 @@ int PATH = -5;
 boolean found = false;
 int[][] directions = {{0, 1}, {0, -1}, {1, 0}, {-1, 0}};
 ArrayList<int[]> path = new ArrayList<int[]>();
-int[][] mapClone = new int[map.length][map[0].length];
-
-
+int[][] mapClone;
 
 // given an x and y, find the path from the player's grid to the x and y
 ArrayList<int[]> findPath(int x, int y) {
-  for (int i = 0; i < map.length; i++) {
-    for (int j = 0; j < map[0].length; j++) {
-      mapClone[i][j] = map[i][j];
-    }
-  }
+  mapClone = mapGame.clone();
   //System.out.println(x + " " + y);
-  path.add(new int[] {protag.playerX/gridSize, protag.playerY/gridSize});
+  path.add(new int[] {protag.playerX, protag.playerY});
   mapClone[path.get(0)[0]][path.get(0)[1]] = START;
   mapClone[x][y] = END;
   //printAr(mapClone);

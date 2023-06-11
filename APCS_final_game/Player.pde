@@ -1,6 +1,6 @@
 public class Player {
-  public int playerX = (int) 1*gridSize+gridSize/2;
-  public int playerY = (int) 38*gridSize+gridSize/2;
+  public int playerX = (int) 1;
+  public int playerY = (int) 38;
   public int goalX;
   public int goalY;
   public int playerRadius = (int) (gridSize/2+1);
@@ -10,6 +10,6 @@ public class Player {
   
   void draw() {
     fill(color(0,255,255));
-    circle(playerX, playerY, playerRadius);
+    circle(playerX*gridSize+gridSize/2, playerY*gridSize+gridSize/2, playerRadius);
   }
 }
