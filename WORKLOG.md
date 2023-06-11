@@ -106,7 +106,7 @@ Restructuring of dialogue method in progress
 
 ### date 5/31/2023
 
-Completed restructed dialogue method (finally)
+Completed restructured dialogue method (finally)
 Added some cheat keys for demo
 
 ### date 6/04/2023
@@ -128,3 +128,9 @@ Updated dialogue() to work w/ id's greater >= 200 (items)
 Enabled dialogue to add the three items to inventory
 Added working inventory that displays to console
 Added ship dialogue  
+
+### date 6/10/2023
+
+Updated ship dialogue
+Enabled dialogue() to check for inventory when choosing to repair the ship
+Game now has an ending due to the above two  
