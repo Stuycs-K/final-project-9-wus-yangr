@@ -55,6 +55,21 @@ Added more dialogue
 
 Finished basic dialogue for all 3 NPCS
 
+### date 6/8/2023
+
+Worked on pathfinding
+
+### date 6/9/2023
+
+Worked on pathfinding
+
+### date 6/10/2023
+
+Pathfinding is now greedy instead of DFS
+Added Your ship
+NPCs can now have multiple dialogue trees based on dialogue tags
+Restructured everything
+
 ## GROUP MEMBER 2 : Randy Yang
 
 ### date 5/22/2023

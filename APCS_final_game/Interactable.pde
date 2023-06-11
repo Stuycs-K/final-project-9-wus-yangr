@@ -12,49 +12,36 @@ int option = 0;
  **/
 
 public class Interactable extends Collidable {
-  int id;
   String name;
-  int xCor;
-  int yCor;
   color intColor;
   boolean firstInteraction = true;
 
-  public Interactable(int id) {
-    super(id);
-  }
-
-  // change of plans: id > 200 is an Item (square symbol) and id > 100 is an NPC (circle symbol)
+  // id > 200 is an Item (square symbol) and id > 100 is an NPC (circle symbol)
   public Interactable(int id, String name, int xCor, int yCor, color intColor) {
-    super(id);
+    super(id, xCor, yCor);
     this.name = name;
-    this.xCor = xCor;
-    this.yCor = yCor;
     this.intColor = intColor;
-    this.id = id;
-    map[xCor][yCor] = INTERACTABLE;
-  }
-
-  public int getId() {
-    return id;
-  }
-
-  public int getXCor() {
-    return xCor;
-  }
-
-  public int getYCor() {
-    return yCor;
+    mapGame.addInteractable(xCor,yCor);
   }
 
   public color getColor() {
     return intColor;
+  }
+  
+  void draw() {
+    fill(getColor());
+    if (getID() < 200) {
+      circle(getXCor()*gridSize+gridSize/2, getYCor()*gridSize+gridSize/2, protag.playerRadius);
+    } else if (getID() < 300) {
+      square(getXCor()*gridSize+gridSize/4, getYCor()*gridSize+gridSize/4, gridSize/2);
+    }
   }
 
   // checks if player is in range and wants to interact with the NPC
   // takes int x and y as coordinates, called on mousePressed
   public boolean checkInteract(int x, int y) {
     // checks if player is within 2 blocks and if mouse is in the NPC's block
-    if (sqrt(pow(abs(playerX/gridSize-xCor), 2)+pow(abs(playerY/gridSize-yCor), 2)) <= 1.5
+    if (sqrt(pow(abs(protag.playerX-xCor), 2)+pow(abs(protag.playerY-yCor), 2)) <= 1.5
       && x == xCor && y == yCor) {
     if (id < 200) {
       System.out.println("\n[You are now speaking with " + name + "]");
@@ -111,7 +98,7 @@ public class Interactable extends Collidable {
         System.out.println(recent.text());
         if(getID() >= 200){
           if(recent.getString().equals("Inventory")){
-            inventory[getID() - 200] = true; 
+            protag.inventory[getID() - 200] = true; 
           }
         }
         try {

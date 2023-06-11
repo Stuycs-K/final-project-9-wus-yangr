@@ -1,7 +1,7 @@
-public class Door extends Interactable{
+public class Door extends Collidable{
  int initialx, initialy, endx, endy; 
  public Door(int id, int x1, int y1, int x2, int y2){
-   super(id); 
+   super(id, x1, y1); 
    initialx = x1; 
    initialy = y1; 
    endx = x2; 
@@ -10,8 +10,8 @@ public class Door extends Interactable{
  
  public void openDoor(){
    //non-working method due to more deliberation needed regarding dialogue 
-   dialogue();
-   playerX = endx; 
-   playerY = endy; 
+   //dialogue();
+   protag.playerX = endx; 
+   protag.playerY = endy; 
  }
 }
