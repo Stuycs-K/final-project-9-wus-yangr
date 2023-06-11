@@ -1,13 +1,13 @@
 // FORMAT
 /**
-boolean trueFalse = false;
-void nameBank() {
-  DialogueNode dialogueThing = new DialogueNode(tag, "Dialogue here");
-  
-  dialogueBank[id%100] = dialogueThing;
-  add children here
-}
-**/
+ boolean trueFalse = false;
+ void nameBank() {
+ DialogueNode dialogueThing = new DialogueNode(tag, "Dialogue here");
+ 
+ dialogueBank[id%100] = dialogueThing;
+ add children here
+ }
+ **/
 
 
 //we're going to add the beginning dialogue for each object to this array
@@ -60,20 +60,20 @@ void docBank() {
   DialogueNode where = new DialogueNode(false, "1 - \"Where can I repair my ship?\" [Leave.]");
   DialogueNode hope = new DialogueNode("end", spokeToDoc, "\"I hope I won't see you in my clinic again, but if you need any medical assistance, you know where to find me.\"");
   DialogueNode mech = new DialogueNode("end", spokeToDoc, "\"Talk to the Mechanic, she's bound to have something for you.\"");
-  
+
   // second option for second interaction (DELETE THIS)
   DialogueNode docSecond = new DialogueNode("testing");
   DialogueNode docTest = new DialogueNode("0 - hi");
   DialogueNode docTest2 = new DialogueNode("end", "hi");
-  
+
   // if you've spoken to him before:
   DialogueNode silence = new DialogueNode("After a while, he looks up. \"How's your ship?\"");
   DialogueNode notSilence = new DialogueNode("\"He looks up. \"How's your ship?\"");
 
   // It always starts with him behind the desk and silence/clear throat
   dialogueBank[0] = docFirst;
-  
-  if (!spokeToDoc.getTag()) { 
+
+  if (!spokeToDoc.getTag()) {
     // branches here: If you haven't spoken to him before, he'll bring up you waking up and the crash
     op1.addChild(op1r);
     op2.addChild(op2r);
@@ -84,7 +84,7 @@ void docBank() {
   }
   docFirst.addChild(op1);
   docFirst.addChild(op2);
-  
+
   op1r.addChild(hur1r);
   op1r.addChild(hur2r);
   op2r.addChild(hur1r);
@@ -189,7 +189,7 @@ void johnBank() {
   DialogueNode dontgrab = new DialogueNode("1 - \"That doesn't look safe.\"");
   DialogueNode offerkey = new DialogueNode("\"Well, didn't think you'd have the guts to do it. Ah well. Nice job. I suppose you want a key to the Graveyard?\"");
   DialogueNode sucks = new DialogueNode("\"Sucks to suck, buttercup. I'm not going out there.\"");
-  DialogueNode johnbye = new DialogueNode("end","He doesn't offer a farewell, continuing to squint at the streets below.");
+  DialogueNode johnbye = new DialogueNode("end", "He doesn't offer a farewell, continuing to squint at the streets below.");
 
   dialogueBank[2] = johnFirst;
   johnFirst.addChild(mechrec);
@@ -258,7 +258,17 @@ void plateBank() {
 //SPACESHIP DIALOGUE
 ////////////////////////////////////////////////////////////////////////////////////////
 
+//falseShipBank is dialogue tree for the ship when it hasn't been repaired yet
+//trueShipBank is dialogue tree for the repaired ship
 void shipBank() {
+  if (!repaired) {
+    falseShipBank();
+  } else {
+    trueShipBank();
+  }
+}
+
+void falseShipBank() {
   DialogueNode oID1 = new DialogueNode("Dial", "This is, presumably, your ship. It's tethered to the end of the dock. Blaster marks are evident on its hull.");
   DialogueNode oID1a = new DialogueNode("Choice", "0 - Repair it.");
   DialogueNode oID1b = new DialogueNode("Choice", "1 - Examine it.");
@@ -276,4 +286,17 @@ void shipBank() {
   oID1a.addChild(oID1a2);
   oID1b.addChild(oID1b1);
   oID1c.addChild(oID1c1);
+}
+
+void trueShipBank() {
+  DialogueNode oID1 = new DialogueNode("Dial", "Your ship is still a little banged up, but its mostly repaired and you can leave the city at any time.");
+  DialogueNode oID1a = new DialogueNode("Choice", "0 - Leave and continue to explore the city before the hurricane comes.");
+  DialogueNode oID1b = new DialogueNode("Choice", "1 - Weep at the poor condition of your ship.");
+  DialogueNode oID1a1 = new DialogueNode("end", "You decide to leave behind your ship and spend some more time exploring the city before its time. ");
+  DialogueNode oID1b1 = new DialogueNode("end", "You break down in tears at the poor condition of your ship. Although it has been repaired enough to function, your beloved ship is still damaged all over. After weeping hysterically for a few minutes, you get up and decide to explore the city a little more.");
+  dialogueBank[3] = oID1;
+  oID1.addChild(oID1a);
+  oID1.addChild(oID1b);
+  oID1a.addChild(oID1a1);
+  oID1b.addChild(oID1b1);
 }

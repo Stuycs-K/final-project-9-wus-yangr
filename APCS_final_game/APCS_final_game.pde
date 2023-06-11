@@ -15,6 +15,9 @@ PImage mapGraphics;
 Map mapGame;
 Pathfinding pathfinder;
 
+boolean repaired = false; 
+boolean threeItems = (protag.inventory[0] && protag.inventory[1] && protag.inventory[2]);
+
 void setup() {
   size(800, 800);
   mapGame = new Map();
