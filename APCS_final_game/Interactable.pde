@@ -21,13 +21,13 @@ public class Interactable extends Collidable {
     super(id, xCor, yCor);
     this.name = name;
     this.intColor = intColor;
-    mapGame.addInteractable(xCor,yCor);
+    mapGame.addInteractable(xCor, yCor);
   }
 
   public color getColor() {
     return intColor;
   }
-  
+
   void draw() {
     fill(getColor());
     if (getID() < 200) {
@@ -43,10 +43,10 @@ public class Interactable extends Collidable {
     // checks if player is within 2 blocks and if mouse is in the NPC's block
     if (sqrt(pow(abs(protag.playerX-xCor), 2)+pow(abs(protag.playerY-yCor), 2)) <= 1.5
       && x == xCor && y == yCor) {
-    if (id < 200) {
-      System.out.println("\n[You are now speaking with " + name + "]");
-    } else {
-      System.out.println("\n[You are now looking at " + name + "]");    
+      if (id < 200) {
+        System.out.println("\n[You are now speaking with " + name + "]");
+      } else {
+        System.out.println("\n[You are now looking at " + name + "]");
       }
 
       // sets up dialogue
@@ -83,31 +83,39 @@ public class Interactable extends Collidable {
   public void dialogue() {
     //if its the firstInteraction w/ the npc, you initialize the dialogueNode recent as the corresponding starting dialogueNode
     if (firstInteraction) {
-        recent = dialogueBank[getID()%100];
+      recent = dialogueBank[getID()%100];
     }
     //gets corresponding dialogueBank index based on objectID since interactables start from 100
     if (recent.hasChild()) {
       //if player turn, wait for input
       if (playerTurn == 1) {
-        recent = recent.getChild(option).getChild(0);
+        //if the ship dialogue is being run, this is run instead as the inventory needs to be checked and dialogue outcomes will be based on that
+        if (getID() == 203 && option == 0 && !protag.inventory[0] && !protag.inventory[1] && !protag.inventory[2]) {
+          recent = recent.getChild(option).getChild(1);
+        } 
+        else {
+          recent = recent.getChild(option).getChild(0);
+        }
         playerTurn++;
         playerTurn %= 2;
       }
       if (playerTurn == 0) {
         //if not player turn, print the current, set it to player turn & set waitingForInput to T
         System.out.println(recent.text());
-        if(getID() >= 200){
-          if(recent.getString().equals("Inventory")){
-            protag.inventory[getID() - 200] = true; 
+        if (getID() >= 200) {
+          if (recent.getString().equals("Inventory")) {
+            protag.inventory[getID() - 200] = true;
           }
         }
         try {
-        if(recent.getString().equals("end")){
-          firstInteraction=true;
+          if (recent.getString().equals("end")) {
+            firstInteraction=true;
+          }
+
+          recent.changeTag();
         }
-        
-        recent.changeTag();
-    } catch (Exception e) {}
+        catch (Exception e) {
+        }
         if (recent.hasChild()) {
           for (DialogueNode child : recent.getChildren()) {
             System.out.println(child.text());
@@ -117,9 +125,6 @@ public class Interactable extends Collidable {
           waitingForInput = true;
           firstInteraction = false;
         }
-        /** might be needed later if we talk to the npc multiple times
-         else{
-         firstInteraction = true; **/
       }
     }
   }
