@@ -15,10 +15,9 @@ PImage mapGraphics;
 Map mapGame;
 Pathfinding pathfinder;
 
-boolean repaired = false; 
-boolean threeItems = (protag.inventory[0] && protag.inventory[1] && protag.inventory[2]);
+boolean repaired = false;
 
- ArrayList<Node> tempPath = new ArrayList<Node>();
+ArrayList<Node> tempPath = new ArrayList<Node>();
 
 void setup() {
   size(800, 800);
@@ -63,9 +62,11 @@ void printAr(int[][] arr) {
  input from player and once input is received, run another round of dialogue*/
 void keyPressed() {
   if (waitingForInput) {
-    option = ((int) key)-48; //ASCII for numbered keys starts at '0' = 48
-    waitingForInput = false;
-    recentInteractable.dialogue();
+    if (((int) key)-48 < recent.children.size()) {
+      option = ((int) key)-48; //ASCII for numbered keys starts at '0' = 48
+      waitingForInput = false;
+      recentInteractable.dialogue();
+    }
   } else if (key == 'i') {
     System.out.println("Player Inventory : ");
     if (protag.inventory[0]) {
@@ -93,23 +94,6 @@ void draw() {
     //System.out.println(item.getXCor() + " " + item.getYCor());
     item.draw();
   }
-
-  /** REMOVED FEATURE - for now
-   // draw a button for dialogue progression
-   fill(color(155,155,155));
-   // if mouse is over button, light up the button
-   if (1050 < mouseX && mouseX < 1450 && 850 < mouseY && mouseY < 950) {
-   fill(color(255));
-   }
-   rect(1050,850,400,100);
-   
-   // Draws the dialogue to the box
-   fill(color(255));
-   textSize(25);
-   text("it's me boy", 1050, 200);
-   text("I'm the PS4", 1050, 250);
-   text("speaking to you inside your brain", 1050, 300);
-   **/
 }
 
 // point-and-click pathfinding: greedy, there shouldn't be any locations on the map where A* would be necessary
@@ -124,9 +108,9 @@ public void mousePressed() {
       //pathfinder.findPath(mouseX/gridSize, mouseY/gridSize);
       AstarPathfinding newPathfinder = new AstarPathfinding();
       Grid mapGrid = new Grid(mapGame.map);
-      tempPath = newPathfinder.find(mapGrid, new Node(protag.playerX,protag.playerY,false), new Node(mouseX/gridSize,mouseY/gridSize,false));
+      tempPath = newPathfinder.find(mapGrid, new Node(protag.playerX, protag.playerY, false), new Node(mouseX/gridSize, mouseY/gridSize, false));
       for (Node item : tempPath) {
-        pathfinder.path.add(new int[] {item.getX(),item.getY()});
+        pathfinder.path.add(new int[] {item.getX(), item.getY()});
       }
     }
     for (Interactable item : interactables) {

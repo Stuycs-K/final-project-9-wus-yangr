@@ -10,7 +10,7 @@
  **/
 
 
-//we're going to add the beginning dialogue for each object to this array
+//Array of beginning dialogueNode for interactables 
 DialogueNode[] dialogueBank = new DialogueNode[10];
 
 //for testing dialogue() but format can be used for the actual initialization of the bank
@@ -324,7 +324,7 @@ void burnerBank() {
   DialogueNode oID1a = new DialogueNode("Choice", "0 - Yes.");
   DialogueNode oID1b = new DialogueNode("Choice", "1 - No.");
   DialogueNode oID1a1 = new DialogueNode("Inventory", "Congratulations! [Afterburner MN 100] has been added to the inventory!");
-  DialogueNode oID1b1 = new DialogueNode("Dial", "You go along on your way, leaving the [Afterburner MN 100] to collect dust for eternity.");
+  DialogueNode oID1b1 = new DialogueNode("end", "You go along on your way, leaving the [Afterburner MN 100] to collect dust for eternity.");
 
   dialogueBank[0] = oID1;
   oID1.addChild(oID1a);
@@ -338,7 +338,7 @@ void shieldBank() {
   DialogueNode oID1a = new DialogueNode("Choice", "0 - Yes.");
   DialogueNode oID1b = new DialogueNode("Choice", "1 - No.");
   DialogueNode oID1a1 = new DialogueNode("Inventory", "Congratulations! [Small Shield Extender] has been added to the inventory!");
-  DialogueNode oID1b1 = new DialogueNode("Dial", "You go along on your way, leaving the [Small Shield Extender] to collect dust for eternity.");
+  DialogueNode oID1b1 = new DialogueNode("end", "You go along on your way, leaving the [Small Shield Extender] to collect dust for eternity.");
 
   dialogueBank[1] = oID1;
   oID1.addChild(oID1a);
@@ -352,7 +352,7 @@ void plateBank() {
   DialogueNode oID1a = new DialogueNode("Choice", "0 - Yes.");
   DialogueNode oID1b = new DialogueNode("Choice", "1 - No.");
   DialogueNode oID1a1 = new DialogueNode("Inventory", "Congratulations! [Metal Plates] has been added to the inventory!");
-  DialogueNode oID1b1 = new DialogueNode("Dial", "You go along on your way, leaving the [Metal Plates] to collect dust for eternity.");
+  DialogueNode oID1b1 = new DialogueNode("end", "You go along on your way, leaving the [Metal Plates] to collect dust for eternity.");
 
   dialogueBank[2] = oID1;
   oID1.addChild(oID1a);
@@ -401,6 +401,7 @@ void trueShipBank() {
   DialogueNode oID1b = new DialogueNode("Choice", "1 - Weep at the poor condition of your ship.");
   DialogueNode oID1a1 = new DialogueNode("end", "You decide to leave behind your ship and spend some more time exploring the city before its time. ");
   DialogueNode oID1b1 = new DialogueNode("end", "You break down in tears at the poor condition of your ship. Although it has been repaired enough to function, your beloved ship is still damaged all over. After weeping hysterically for a few minutes, you get up and decide to explore the city a little more.");
+  
   dialogueBank[3] = oID1;
   oID1.addChild(oID1a);
   oID1.addChild(oID1b);
