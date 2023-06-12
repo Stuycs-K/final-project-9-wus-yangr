@@ -2,6 +2,7 @@
 THIS DOCUMENT IS REQUIRED
 ## Group Info
 Members: Randy Yang, Sherlyn Wu
+
 Group Name: Precinct 41 Major Crimes Department
 
 ## Overview
@@ -12,13 +13,13 @@ Explore the map, talk to NPCs, and collect the 3 items needed to repair the ship
 
 Player = bright turquoise colored circle
 
-NPCs = colored circles
+Interactable NPCs = colored circles
 
 Interactable Items = colored rectangles
 
-Ship = teal colored rectangle at the bottom of the map
+Interactable Ship = teal colored rectangle at the bottom of the map
 
-When engaged in dialogue, only click the numbers corresponding to the options available or else the program will break and it will need to be rerun to reset it.
+When engaged in dialogue, only click the numbers corresponding to the options available, other number inputs will do nothing. DO NOT interact with or engage in dialogue with another interactable or else the dialogue will break and the progam will need to be rerun.
 
 After collecting all 3 items, you can return to the ship and repair it. After repairing the ship, you have "finished" the game but you can continue to explore the city.
 

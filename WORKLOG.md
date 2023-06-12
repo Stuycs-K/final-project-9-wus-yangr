@@ -145,3 +145,6 @@ Game now has an ending due to the above two
 
 Updated README file
 Added separate ship dialogue() after it has been repaired allowing for better ending
+Cleaned up comments/extra code
+Fixed error when encountering unexpected input for dialogue
+Different text appears after interacting with an item that has been acquired
