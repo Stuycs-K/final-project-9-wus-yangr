@@ -9,7 +9,8 @@ class DialogueTag {
    return dialogueTag;
  }
  
+ // makes it true - DO NOT use this to make true tags false
  void changeTag() {
-  dialogueTag = !dialogueTag; 
+  dialogueTag = true; 
  }
 }

@@ -2,15 +2,7 @@ int INTERACTABLE = 2;
 boolean waitingForInput = false;
 int playerTurn = 0;
 int option = 0;
-boolean possessItems = false; 
-
-/**
- TODO:
- create NPC and Item classes that inherit from this:
- NPCs have Portraits pngs that appear in the dialogue box and appear as circles on the map
- Items do not have Portrait pngs and appear as squares on the map
- Create draw functions within Interactable/NPC/Item so they don't clog up the main file's draw function
- **/
+boolean possessItems = false;
 
 public class Interactable extends Collidable {
   String name;
@@ -47,7 +39,12 @@ public class Interactable extends Collidable {
       if (id < 200) {
         System.out.println("\n[You are now speaking with " + name + "]");
       } else {
-        System.out.println("\n[You are now looking at " + name + "]");
+        if (id < 203 && protag.inventory[id % 100]) {
+          System.out.println("\n[You are now looking at spot where you found the " + name + "]");
+        }
+        else{
+          System.out.println("\n[You are now looking at " + name + "]");
+        }
       }
 
       // sets up dialogue
@@ -91,25 +88,28 @@ public class Interactable extends Collidable {
     if (recent.hasChild()) {
       //if player turn, wait for input
       if (playerTurn == 1) {
-        //if the ship dialogue is being run, this is run instead as the inventory needs to be checked and dialogue outcomes will be based on that
-        if (getID() == 203 && option == 0) {
-          if(!possessItems){
-            recent = recent.getChild(option).getChild(1);
-          }
-          else{
+        if (option < recent.children.size()) {
+          //if the ship dialogue is being run, this is run instead as the inventory needs to be checked and dialogue outcomes will be based on that
+          if (getID() == 203 && option == 0) {
+            if (!possessItems) {
+              recent = recent.getChild(option).getChild(1);
+            } else {
+              recent = recent.getChild(option).getChild(0);
+              repaired = true;
+            }
+          } 
+          //this is run instead if it is any other dialogue tree other than ship 
+          else {
             recent = recent.getChild(option).getChild(0);
-            repaired = true; 
           }
+          playerTurn++;
+          playerTurn %= 2;
         } 
-        else {
-          recent = recent.getChild(option).getChild(0);
-        }
-        playerTurn++;
-        playerTurn %= 2;
       }
       if (playerTurn == 0) {
         //if not player turn, print the current, set it to player turn & set waitingForInput to T
         System.out.println(recent.text());
+        //sets the corresponding index in inventory to true if the "Inventory" tag appears in the dialogue tree (only for items) 
         if (getID() >= 200) {
           if (recent.getString().equals("Inventory")) {
             protag.inventory[getID() - 200] = true;
@@ -124,6 +124,7 @@ public class Interactable extends Collidable {
         }
         catch (Exception e) {
         }
+        //if there is still a child, continue the process 
         if (recent.hasChild()) {
           for (DialogueNode child : recent.getChildren()) {
             System.out.println(child.text());

@@ -70,6 +70,12 @@ Added Your ship
 NPCs can now have multiple dialogue trees based on dialogue tags
 Restructured everything
 
+### date 6/11/2023
+
+Updated map graphics
+Pathfinding is now Astar instead of greedy
+Gave Doc more dialogue
+
 ## GROUP MEMBER 2 : Randy Yang
 
 ### date 5/22/2023

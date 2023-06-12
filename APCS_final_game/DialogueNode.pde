@@ -72,4 +72,14 @@ class DialogueNode {
   void changeTag() {
     changeTag.changeTag();
   }
+  
+  // wipes the entire dialogue tree to allow different trees to be constructed 
+  void bereavement() {
+    if (children.size() > 0) {
+      for (int i = children.size()-1; i >= 0; i--) {
+        children.get(i).bereavement();
+        children.remove(i);
+      }
+    }
+  }
 }

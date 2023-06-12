@@ -10,7 +10,7 @@
  **/
 
 
-//we're going to add the beginning dialogue for each object to this array
+//Array of beginning dialogueNode for interactables 
 DialogueNode[] dialogueBank = new DialogueNode[10];
 
 //for testing dialogue() but format can be used for the actual initialization of the bank
@@ -58,17 +58,54 @@ void docBank() {
   DialogueNode bad = new DialogueNode(true, "\"Bad enough that you'll crash again if you try flying in that mess.\"");
   DialogueNode thx = new DialogueNode(false, "0 - \"Okay, thanks for the info.\" [Leave.]");
   DialogueNode where = new DialogueNode(false, "1 - \"Where can I repair my ship?\" [Leave.]");
-  DialogueNode hope = new DialogueNode("end", spokeToDoc, "\"I hope I won't see you in my clinic again, but if you need any medical assistance, you know where to find me.\"");
+  DialogueNode hope = new DialogueNode("end", spokeToDoc, "\"If you need any medical assistance or just need information, you know where to find me.\"");
   DialogueNode mech = new DialogueNode("end", spokeToDoc, "\"Talk to the Mechanic, she's bound to have something for you.\"");
-
-  // second option for second interaction (DELETE THIS)
-  DialogueNode docSecond = new DialogueNode("testing");
-  DialogueNode docTest = new DialogueNode("0 - hi");
-  DialogueNode docTest2 = new DialogueNode("end", "hi");
 
   // if you've spoken to him before:
   DialogueNode silence = new DialogueNode("After a while, he looks up. \"How's your ship?\"");
-  DialogueNode notSilence = new DialogueNode("\"He looks up. \"How's your ship?\"");
+  DialogueNode notSilence = new DialogueNode("He looks up. \"How's your ship?\"");
+  DialogueNode worldInfo = new DialogueNode("0 - \"Can you tell me more about this city?\"");
+  DialogueNode sure = new DialogueNode("\"Sure. Do you want an overview of what it's like now or our history?\"");
+  DialogueNode present = new DialogueNode("0 - \"Tell me about the present.\"");
+  DialogueNode present1 = new DialogueNode("\"I'll start with the locations. You woke up in my clinic. People come to me for medical treatment.\"\n\"Your Ship's at the Dive Point. On normal days, people tether their skimmers and subs there, but everyone took theirs inside or underwater to prepare for the storm.\"\n\"Other than that, it's where people go diving. It's where you access the underwater district of Hailan- our city.\"");
+  DialogueNode present1k = new DialogueNode("0 - [Keep listening.]");
+  DialogueNode present1slang = new DialogueNode("2 - \"Skimmers and subs?\"");
+  DialogueNode present1slang2 = new DialogueNode("\"Ah, I forget offworlders don't know. Skimmers are easier to maintain, easier to produce. On-water travel. If you've been to the warehouse, you've probably seen a bunch of 'em.\"\n\"Subs are submarines. Underwater travel.\"");
+  DialogueNode present2 = new DialogueNode("\"You can't go to the lower district. You don't have the parts to it. You gotta have cybernetic gills or purchase underwater equipment.\"\n\"The equipment stores are closed, though. Again, it's not a normal day.\"\n\"Next to the Dive Point is Watchman's place. He watches us. Big Johnny's right-hand man.\"");
+  DialogueNode present2k = new DialogueNode("0 - [Keep listening.]");
+  DialogueNode present3 = new DialogueNode("\"Over yonder is the Hangar and Launchpad, the Warehouse, which has the Graveyard attached to it, and the Refinery.\"\n\"Most of the names are self-explanatory. The Graveyard's where all our scrap goes. There's some kid that hangs around there all the time.\"\n\"Not sure where his parents are. Probably underwater, like most of Hailan's residents.\"");
+  DialogueNode present3k = new DialogueNode("0 - [Keep listening.]");
+  DialogueNode present4 = new DialogueNode("\"The Overlook's at the center of town, right where Central, Residential, and Industrial intersect. That's Johnny's place.\"\n\"Real windy up there. You get a view of the entire city. Well. The upper district, anyway.\"\n\"Back to my clinic. Next to mine, there's Security, the Visitor's Quarters, and the gate from Industrial to Central.\"");
+  DialogueNode present4k = new DialogueNode("0 - [Keep listening.]");
+  DialogueNode present5 = new DialogueNode("\"Now, you might be thinking- Doc, why's your place in Industrial?\"\n\"All the accidents happen here. Refinery's a missing-finger generator. All the half-drownies get brought in from the Dive Point. Easy access to my clinic saves lives.\"\n\"Now to Central.\"");
+  DialogueNode present5k = new DialogueNode("0 - [Keep listening.]");
+  DialogueNode present6 = new DialogueNode("\"The Mechanic's Shop is the first thing you see when you walk into Central. Then there's the equipment shop, the toolshed, and Pam's Diner.\"\n\"Only the Mechanic's Shop is open right now.\"\n\"Pam's a sweet lady, by the way. You ought to visit-\" He cuts himself off. \"Right. The storm. Ah, well. It's a shame you can't go.\"\n\"There's another Dive Point in Central, right next to Pam's Diner. It doesn't see as much traffic as the main one, but it's there.\"");
+  DialogueNode present6k = new DialogueNode("0 - [Keep listening.]");
+  DialogueNode present7 = new DialogueNode("\"Residential's on the other side of Central if you keep taking the main path. The old housing is there. There's another dive point at the very end of Residential.\"\n\"That's the upper district for you.\"");
+  DialogueNode pastfrompres = new DialogueNode("0 - \"Tell me about the past.\"");
+  DialogueNode past = new DialogueNode("1 - \"Tell me about the past.\"");
+  DialogueNode past1 = new DialogueNode("\"Well, okay. From the very beginning.\"\n\"Hailan- that's the name of this city, by the way- started as a mining colony. Basilisk Industries.\"\n\"I wasn't one of the original colonists. They sent me down after they lost their medic to a tsunami.\"");
+  DialogueNode past1k = new DialogueNode("0 - [Keep listening.]");
+  DialogueNode past2 = new DialogueNode("\"This planet- also called Hailan, we're very original like that- has an abundance of valuable ores.\"\n\"Basilisk deployed a drill, an on-site refinery, a hangar, and a warehouse for long-term mining.\"\n\"That circular thing you see outside my clinic? Real ancient piece of tech, isn't she? That's the drill.\"");
+  DialogueNode past2k = new DialogueNode("0 - [Keep listening.]");
+  DialogueNode past3 = new DialogueNode("\"As they kept mining, they found more and more ore, so they deployed more workers for the expedition.\"\n\"The months stretched into years. People started building semi-permanent housing, later becoming permanent housing.\"\n\"They brought their families. Shops. People built shops, too. We became a proper town.\"");
+  DialogueNode past3k = new DialogueNode("0 - [Keep listening.]");
+  DialogueNode past4 = new DialogueNode("\"One day, the CEO of Basilisk was assassinated. Tangled with the wrong people, I presume.\"\n\"He was shot out over Hailan's sky. The explosion took our satellites with it, so we couldn't call for help.\"\n\"The execs took their shuttles and fled, leaving the rest of us stranded. We've been stranded ever since. Thirty years, give or take.\"");
+  DialogueNode past4k = new DialogueNode("0 - [Keep listening.]");
+  DialogueNode past5 = new DialogueNode("\"Johnny took over. We didn't have a leader, so he stepped up. He was somewhere high up in the security chain, I believe?\"\n\"Nobody remembers his real name, so we all call him Big Johnny.\"\n\"Anyway, you're the first visitor we've had in a while. Offworlders come and go, but Hailan's a backwater city on a backwater planet in a backwater star system.\"");
+  DialogueNode stopListening = new DialogueNode("1 - \"Thanks for the info.\" [Leave.]");
+  DialogueNode chitchat = new DialogueNode("1 - \"It's doing alright.\"");
+  DialogueNode docDontChat = new DialogueNode("\"Good! That's good to hear.\"\nHe glances at his paperwork, drumming his fingers on the table.");
+  DialogueNode docDontChatCont = new DialogueNode("0 - [Leave.]");
+  DialogueNode docLeave = new DialogueNode("2 - [Leave.]");
+  DialogueNode itsRepaired = new DialogueNode("3 - \"It's fully repaired.\"");
+  DialogueNode docApproves = new DialogueNode("\"That is good news. So, you're leaving?\"");
+  DialogueNode yeahLeave = new DialogueNode("0 - \"Yeah, I have to report back.\" [Leave.]");
+  DialogueNode nahLeave = new DialogueNode("1 - \"Nah, I want to sightsee some more.\" [Leave.]");
+  DialogueNode docHurry = new DialogueNode("end", "\"Alright. Do keep the storm in mind.\"");
+
+  // wipes entire tree
+  docFirst.bereavement();
 
   // It always starts with him behind the desk and silence/clear throat
   dialogueBank[0] = docFirst;
@@ -81,6 +118,78 @@ void docBank() {
     // if you have, he'll ask about your ship
     op1.addChild(silence);
     op2.addChild(notSilence);
+    silence.addChild(worldInfo);
+    silence.addChild(chitchat);
+    silence.addChild(docLeave);
+    notSilence.addChild(worldInfo);
+    notSilence.addChild(chitchat);
+    notSilence.addChild(docLeave);
+
+    // worldInfo tree
+    worldInfo.addChild(sure);
+    
+    // present
+    sure.addChild(present);
+    present.addChild(present1);
+    present1.addChild(present1k);
+    present1.addChild(stopListening);
+    present1.addChild(present1slang);
+    present1slang.addChild(present1slang2);
+    present1slang2.addChild(present1k);
+    present1k.addChild(present2);
+    present2.addChild(present2k);
+    present2.addChild(stopListening);
+    present2k.addChild(present3);
+    present3.addChild(present3k);
+    present3.addChild(stopListening);
+    present3k.addChild(present4);
+    present4.addChild(present4k);
+    present4.addChild(stopListening);
+    present4k.addChild(present5);
+    present5.addChild(present5k);
+    present5.addChild(stopListening);
+    present5k.addChild(present6);
+    present6.addChild(present6k);
+    present6.addChild(stopListening);
+    present6k.addChild(present7);
+    present7.addChild(pastfrompres);
+    present7.addChild(stopListening);
+    pastfrompres.addChild(past1);
+    
+    // past
+    sure.addChild(past);
+    past.addChild(past1);
+    past1.addChild(past1k);
+    past1.addChild(stopListening);
+    past1k.addChild(past2);
+    past2.addChild(past2k);
+    past2.addChild(stopListening);
+    past2k.addChild(past3);
+    past3.addChild(past3k);
+    past3.addChild(stopListening);
+    past3k.addChild(past4);
+    past4.addChild(past4k);
+    past4.addChild(stopListening);
+    past4k.addChild(past5);
+    past5.addChild(present);
+    past5.addChild(stopListening);
+    stopListening.addChild(hope);
+
+    chitchat.addChild(docDontChat);
+    docDontChat.addChild(docDontChatCont);
+    docDontChatCont.addChild(hope);
+    docLeave.addChild(hope);
+
+    // if your ship is repaired, you can tell him about it
+    if (repaired) {
+      silence.addChild(itsRepaired);
+      notSilence.addChild(itsRepaired);
+      itsRepaired.addChild(docApproves);
+      docApproves.addChild(yeahLeave);
+      docApproves.addChild(nahLeave);
+      yeahLeave.addChild(docHurry);
+      nahLeave.addChild(docHurry);
+    }
   }
   docFirst.addChild(op1);
   docFirst.addChild(op2);
@@ -99,8 +208,6 @@ void docBank() {
   where.addChild(mech);
   //hur.addChild(hur1r);
   //hur.addChild(hur2r);
-  docSecond.addChild(docTest);
-  docTest.addChild(docTest2);
 }
 
 DialogueTag spokeToMech = new DialogueTag(false);
@@ -217,7 +324,7 @@ void burnerBank() {
   DialogueNode oID1a = new DialogueNode("Choice", "0 - Yes.");
   DialogueNode oID1b = new DialogueNode("Choice", "1 - No.");
   DialogueNode oID1a1 = new DialogueNode("Inventory", "Congratulations! [Afterburner MN 100] has been added to the inventory!");
-  DialogueNode oID1b1 = new DialogueNode("Dial", "You go along on your way, leaving the [Afterburner MN 100] to collect dust for eternity.");
+  DialogueNode oID1b1 = new DialogueNode("end", "You go along on your way, leaving the [Afterburner MN 100] to collect dust for eternity.");
 
   dialogueBank[0] = oID1;
   oID1.addChild(oID1a);
@@ -231,7 +338,7 @@ void shieldBank() {
   DialogueNode oID1a = new DialogueNode("Choice", "0 - Yes.");
   DialogueNode oID1b = new DialogueNode("Choice", "1 - No.");
   DialogueNode oID1a1 = new DialogueNode("Inventory", "Congratulations! [Small Shield Extender] has been added to the inventory!");
-  DialogueNode oID1b1 = new DialogueNode("Dial", "You go along on your way, leaving the [Small Shield Extender] to collect dust for eternity.");
+  DialogueNode oID1b1 = new DialogueNode("end", "You go along on your way, leaving the [Small Shield Extender] to collect dust for eternity.");
 
   dialogueBank[1] = oID1;
   oID1.addChild(oID1a);
@@ -245,7 +352,7 @@ void plateBank() {
   DialogueNode oID1a = new DialogueNode("Choice", "0 - Yes.");
   DialogueNode oID1b = new DialogueNode("Choice", "1 - No.");
   DialogueNode oID1a1 = new DialogueNode("Inventory", "Congratulations! [Metal Plates] has been added to the inventory!");
-  DialogueNode oID1b1 = new DialogueNode("Dial", "You go along on your way, leaving the [Metal Plates] to collect dust for eternity.");
+  DialogueNode oID1b1 = new DialogueNode("end", "You go along on your way, leaving the [Metal Plates] to collect dust for eternity.");
 
   dialogueBank[2] = oID1;
   oID1.addChild(oID1a);
@@ -289,11 +396,12 @@ void falseShipBank() {
 }
 
 void trueShipBank() {
-  DialogueNode oID1 = new DialogueNode("Dial", "Your ship is still a little banged up, but its mostly repaired and you can leave the city at any time.");
+  DialogueNode oID1 = new DialogueNode("Dial", "Your ship is still a little banged up, but it's mostly repaired and you can leave the city at any time.");
   DialogueNode oID1a = new DialogueNode("Choice", "0 - Leave and continue to explore the city before the hurricane comes.");
   DialogueNode oID1b = new DialogueNode("Choice", "1 - Weep at the poor condition of your ship.");
   DialogueNode oID1a1 = new DialogueNode("end", "You decide to leave behind your ship and spend some more time exploring the city before its time. ");
   DialogueNode oID1b1 = new DialogueNode("end", "You break down in tears at the poor condition of your ship. Although it has been repaired enough to function, your beloved ship is still damaged all over. After weeping hysterically for a few minutes, you get up and decide to explore the city a little more.");
+  
   dialogueBank[3] = oID1;
   oID1.addChild(oID1a);
   oID1.addChild(oID1b);

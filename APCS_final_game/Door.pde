@@ -1,3 +1,6 @@
+/////////////////////////////////////////////////////
+//Non-working class
+/////////////////////////////////////////////////////
 public class Door extends Collidable{
  int initialx, initialy, endx, endy; 
  public Door(int id, int x1, int y1, int x2, int y2){
