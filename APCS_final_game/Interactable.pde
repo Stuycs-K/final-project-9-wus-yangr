@@ -91,6 +91,7 @@ public class Interactable extends Collidable {
     if (recent.hasChild()) {
       //if player turn, wait for input
       if (playerTurn == 1) {
+        if (option < recent.children.size()) {
         //if the ship dialogue is being run, this is run instead as the inventory needs to be checked and dialogue outcomes will be based on that
         if (getID() == 203 && option == 0) {
           if(!possessItems){
@@ -106,6 +107,9 @@ public class Interactable extends Collidable {
         }
         playerTurn++;
         playerTurn %= 2;
+        } else {
+          System.out.println("oopsie-woopsie! you pwessed da wwong button and bwoke da game owo pwease wun this pwogwam again and be mowe cawefuw nyext time =^w^=");
+        }
       }
       if (playerTurn == 0) {
         //if not player turn, print the current, set it to player turn & set waitingForInput to T
