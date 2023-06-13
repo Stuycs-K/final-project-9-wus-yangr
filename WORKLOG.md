@@ -1,5 +1,18 @@
 # Work Log
 
+## Dev Log
+
+### Working features
+- Working 2d map
+- Pathfinding
+- NPC (3), Item (3), and Ship (1) dialogue
+- Dialogue branch system
+- Dialogue user input limited to only the options shown
+- Inventory system (press i)
+
+### Broken features / Bugs
+- Interacting with another interactable while in dialogue causes the dialogue sometimes
+
 ## GROUP MEMBER 1: Sherlyn Wu
 
 ### date 5/22/2023
