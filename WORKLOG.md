@@ -11,7 +11,7 @@
 - Inventory system (press i)
 
 ### Broken features / Bugs
-- Interacting with another interactable while in dialogue causes the dialogue sometimes
+- Interacting with another interactable while in dialogue causes the dialogue sometimes to break
 
 ## GROUP MEMBER 1: Sherlyn Wu
 
